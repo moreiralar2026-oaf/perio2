@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apostila de Periodontia — Da Anatomia à Classificação Clínica</title>
+<style>
+  :root{
+    --azul:#1b4f72;
+    --azul-claro:#d6eaf8;
+    --verde:#1e8449;
+    --verde-claro:#d5f5e3;
+    --laranja:#b9770e;
+    --laranja-claro:#fdebd0;
+    --vermelho:#922b21;
+    --vermelho-claro:#fadbd8;
+    --cinza:#f4f6f7;
+    --cinza-borda:#d5d8dc;
+    --texto:#212f3d;
+  }
+  *{box-sizing:border-box;}
+  body{
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    margin:0; padding:0;
+    background:var(--cinza);
+    color:var(--texto);
+    line-height:1.55;
+  }
+  .layout{display:flex; max-width:1300px; margin:0 auto;}
+  nav{
+    width:250px; flex-shrink:0;
+    background:var(--azul); color:#fff;
+    padding:20px 12px; position:sticky; top:0; height:100vh; overflow-y:auto;
+  }
+  nav h2{font-size:1.05em; border-bottom:1px solid rgba(255,255,255,.25); padding-bottom:8px;}
+  nav a{display:block; color:#eaf2f8; text-decoration:none; padding:6px 8px; font-size:.88em; border-radius:4px;}
+  nav a:hover{background:rgba(255,255,255,.15);}
+  main{flex:1; padding:24px 32px; max-width:1000px;}
+  h1{color:var(--azul); border-bottom:4px solid var(--azul); padding-bottom:10px;}
+  h2{color:var(--azul); border-left:6px solid var(--azul); padding-left:10px; margin-top:42px;}
+  h3{color:#154360; margin-top:24px;}
+  .secao{scroll-margin-top:10px;}
+  table{border-collapse:collapse; width:100%; margin:14px 0; font-size:.92em;}
+  th,td{border:1px solid var(--cinza-borda); padding:8px 10px; text-align:left; vertical-align:top;}
+  th{background:var(--azul-claro); color:var(--azul);}
+  tr:nth-child(even) td{background:#fafbfc;}
+  .box{border-radius:8px; padding:14px 18px; margin:14px 0;}
+  .box-conceito{background:var(--azul-claro); border-left:5px solid var(--azul);}
+  .box-mnemonico{background:var(--verde-claro); border-left:5px solid var(--verde);}
+  .box-pegadinha{background:var(--vermelho-claro); border-left:5px solid var(--vermelho);}
+  .box-dica{background:var(--laranja-claro); border-left:5px solid var(--laranja);}
+  .box-fato{background:#eaecee; border-left:5px solid #5d6d7e;}
+  .box h4{margin:0 0 6px 0; font-size:1em;}
+  .tag-fato{display:inline-block; background:#5d6d7e; color:#fff; font-size:.72em; padding:1px 7px; border-radius:10px; margin-left:6px;}
+  .tag-hipotese{display:inline-block; background:var(--laranja); color:#fff; font-size:.72em; padding:1px 7px; border-radius:10px; margin-left:6px;}
+  .flashcard{
+    border:1px solid var(--cinza-borda); border-radius:8px; margin:10px 0; overflow:hidden;
+    background:#fff;
+  }
+  .flashcard summary{
+    cursor:pointer; padding:10px 14px; background:var(--azul-claro); font-weight:600; color:var(--azul);
+    list-style:none;
+  }
+  .flashcard summary::-webkit-details-marker{display:none;}
+  .flashcard summary::before{content:"▸ "; }
+  .flashcard[open] summary::before{content:"▾ ";}
+  .flashcard .resposta{padding:10px 14px; border-top:1px dashed var(--cinza-borda); background:#fdfefe;}
+  .fluxo{
+    display:flex; flex-wrap:wrap; align-items:center; gap:6px; margin:14px 0;
+  }
+  .fluxo-item{
+    background:#fff; border:2px solid var(--azul); border-radius:8px; padding:8px 12px; font-size:.85em; font-weight:600; color:var(--azul); text-align:center;
+  }
+  .fluxo-item.alerta{border-color:var(--vermelho); color:var(--vermelho);}
+  .fluxo-seta{font-size:1.3em; color:var(--azul); font-weight:bold;}
+  .resumo1pag{background:#fff; border:2px solid var(--azul); border-radius:10px; padding:18px 22px;}
+  .resumo1pag h3{margin-top:14px;}
+  .top-link{font-size:.8em; text-align:right;}
+  .top-link a{color:var(--azul); text-decoration:none;}
+  @media print{
+    nav{display:none;}
+    .layout{display:block;}
+    main{max-width:100%; padding:0;}
+  }
+  @media (max-width: 800px){
+    .layout{flex-direction:column;}
+    nav{position:relative; width:100%; height:auto;}
+    main{padding:16px;}
+  }
+
+  /* === ÁREA DE QUESTÕES === */
+  #quiz-container{margin-top:10px;}
+  .quiz-toolbar{
+    display:flex; flex-wrap:wrap; gap:10px; align-items:center;
+    background:#fff; border:1px solid var(--cinza-borda); border-radius:8px; padding:12px 16px; margin-bottom:16px;
+    position:sticky; top:0; z-index:5;
+  }
+  .quiz-toolbar select, .quiz-toolbar button{
+    padding:6px 10px; border-radius:6px; border:1px solid var(--cinza-borda); font-size:.9em; cursor:pointer; background:#fff;
+  }
+  .quiz-toolbar button.primary{background:var(--azul); color:#fff; border-color:var(--azul);}
+  .quiz-toolbar button.primary:hover{background:#154360;}
+  .quiz-score{font-weight:700; color:var(--azul); margin-left:auto;}
+  .questao{
+    background:#fff; border:1px solid var(--cinza-borda); border-radius:8px; padding:16px 20px; margin-bottom:14px;
+  }
+  .questao .qhead{display:flex; justify-content:space-between; align-items:baseline; gap:10px; flex-wrap:wrap;}
+  .questao .qnum{font-weight:700; color:var(--azul);}
+  .questao .qtema{font-size:.75em; background:var(--azul-claro); color:var(--azul); padding:2px 8px; border-radius:10px;}
+  .questao .qenunciado{margin:8px 0 12px 0; font-weight:500;}
+  .alternativas{display:flex; flex-direction:column; gap:6px;}
+  .alternativa{
+    display:flex; gap:8px; align-items:flex-start; padding:8px 10px; border:1px solid var(--cinza-borda);
+    border-radius:6px; cursor:pointer; background:#fafbfc; transition:background .15s;
+  }
+  .alternativa:hover{background:#f0f3f5;}
+  .alternativa input{margin-top:3px;}
+  .alternativa.correta-marcada{border-color:var(--verde); background:var(--verde-claro);}
+  .alternativa.errada-marcada{border-color:var(--vermelho); background:var(--vermelho-claro);}
+  .alternativa.revelar-correta{border-color:var(--verde); background:var(--verde-claro); font-weight:600;}
+  .feedback{margin-top:12px; padding:10px 14px; border-radius:6px; font-size:.92em; display:none;}
+  .feedback.show{display:block;}
+  .feedback.acerto{background:var(--verde-claro); border-left:4px solid var(--verde);}
+  .feedback.erro{background:var(--vermelho-claro); border-left:4px solid var(--vermelho);}
+  .feedback .comentario{margin-top:6px;}
+  .qactions{margin-top:10px; display:flex; gap:8px;}
+  .qactions button{
+    padding:5px 12px; font-size:.85em; border-radius:6px; border:1px solid var(--azul); background:#fff; color:var(--azul); cursor:pointer;
+  }
+  .qactions button:hover{background:var(--azul-claro);}
+  .qactions button:disabled{opacity:.5; cursor:default;}
+  .hidden{display:none !important;}
+</style>
+</head>
+<body>
+<div class="layout">
+
+<nav>
+  <h2>📘 Periodontia</h2>
+  <a href="#sec1">1. Definição</a>
+  <a href="#sec2">2. Conceitos Fundamentais</a>
+  <a href="#sec3">3. Classificações</a>
+  <a href="#sec4">4. Etiologia / Fatores de Risco</a>
+  <a href="#sec5">5. Fisiopatologia (Fluxograma)</a>
+  <a href="#sec6">6. Quadro Clínico</a>
+  <a href="#sec7">7. Diagnóstico</a>
+  <a href="#sec8">8. Diagnóstico Diferencial</a>
+  <a href="#sec9">9. Tratamento</a>
+  <a href="#sec10">10. Complicações</a>
+  <a href="#sec11">11. Tabela Comparativa</a>
+  <a href="#sec12">12. Pegadinhas de Prova</a>
+  <a href="#sec13">13. Flashcards</a>
+  <a href="#sec14">14. Resumo 1 Página</a>
+  <a href="#sec15">15. Banco de 100 Questões</a>
+</nav>
+
+<main>
+<h1>Apostila de Periodontia — Da Anatomia à Classificação Clínica (2018)</h1>
+<p>Material de revisão para concurso/residência, 5º ano de Odontologia. Baseado na Nova Classificação das Doenças Periodontais (World Workshop 2017/2018 — Tonetti, Papapanou, Caton et al.) e nos guias de estudo consolidados sobre anatomia do periodonto e controle de biofilme.</p>
+
+<section class="secao" id="sec1">
+<h2>1. Definição</h2>
+
+<div class="box box-conceito">
+<h4>O que é o Periodonto?</h4>
+<p>Etimologicamente, <strong>Periodonto</strong> vem do grego <em>Peri</em> (em volta) + <em>Odonto</em> (dente). É o conjunto de tecidos responsáveis por inserir e revestir o dente no osso alveolar, formando uma unidade funcional dinâmica e interdependente <span class="tag-fato">FATO</span>.</p>
+</div>
+
+<p>O periodonto se divide em dois grandes grupos funcionais:</p>
+<table>
+<tr><th>Grupo</th><th>Componentes</th><th>Função principal</th></tr>
+<tr><td><strong>Periodonto de Proteção</strong></td><td>Gengiva (Marginal/Livre, Inserida, Interdental)</td><td>Barreira biológica e mecânica contra agressões externas (biofilme, trauma)</td></tr>
+<tr><td><strong>Periodonto de Sustentação</strong></td><td>Cemento radicular, Ligamento Periodontal (LP), Osso Alveolar</td><td>Ancoragem do dente no alvéolo e dissipação de forças mastigatórias</td></tr>
+</table>
+
+<div class="box box-mnemonico">
+<h4>🧠 Mnemônico — "PS" do Periodonto</h4>
+<p><strong>P</strong>roteção = <strong>P</strong>ele de fora (gengiva, o que você vê)<br>
+<strong>S</strong>ustentação = <strong>S</strong>egurando por dentro (cemento, ligamento, osso — o que você não vê, mas é o "esqueleto" do dente).</p>
+</div>
+
+<div class="box box-conceito">
+<h4>Definições-chave de saúde/doença (Classificação 2018)</h4>
+<ul>
+<li><strong>Saúde Periodontal:</strong> ausência de sinais clínicos de inflamação <span class="tag-fato">FATO</span>.</li>
+<li><strong>Gengivite:</strong> inflamação restrita à gengiva (periodonto de proteção), <strong>sem perda de inserção</strong>, totalmente reversível <span class="tag-fato">FATO</span>.</li>
+<li><strong>Periodontite:</strong> doença inflamatória crônica multifatorial associada a biofilmes disbióticos, caracterizada pela destruição progressiva e <strong>irreversível</strong> do aparelho de suporte (LP + osso alveolar) <span class="tag-fato">FATO</span>.</li>
+<li><strong>Doenças Necrosantes:</strong> formas graves (gengivite, periodontite ou estomatite necrosante) associadas a falhas na resposta imune do hospedeiro, com necrose das papilas interdentais, dor e sangramento <span class="tag-fato">FATO</span>.</li>
+</ul>
+</div>
+
+<div class="top-link"><a href="#sec15">↓ Ir para o Banco de Questões</a></div>
+</section>
+
+
+<section class="secao" id="sec2">
+<h2>2. Conceitos Fundamentais</h2>
+
+<h3>2.1 Anatomia Clínica da Gengiva (Periodonto de Proteção)</h3>
+<table>
+<tr><th>Componente</th><th>Características</th></tr>
+<tr><td><strong>Gengiva Marginal (Livre)</strong></td><td>Porção terminal que circunda o dente como um "colarinho" (≈1 mm de espessura). Forma a parede mole do sulco gengival; separada da gengiva inserida pela ranhura gengival livre.</td></tr>
+<tr><td><strong>Gengiva Inserida</strong></td><td>Firme, resiliente, fortemente aderida ao periósteo via lâmina própria. <strong>Mais larga nos dentes anteriores</strong> (Maxila &gt; Mandíbula) e <strong>mais estreita na região de pré-molares</strong> (posteriores).</td></tr>
+<tr><td><strong>Gengiva Interdental</strong></td><td>Ocupa a ameia gengival sob o ponto de contato. Forma o <strong>"Col"</strong> — depressão não queratinizada e vulnerável. Em diastemas, torna-se lisa, arredondada e queratinizada.</td></tr>
+</table>
+
+<div class="box box-conceito">
+<h4>Marcos anatômicos essenciais</h4>
+<ul>
+<li><strong>JEC (Junção Esmalte-Cemento):</strong> ponto de referência fixo para medir perda de inserção (NIC) <span class="tag-fato">FATO</span>.</li>
+<li><strong>Sulco Gengival:</strong> espaço entre o dente e a gengiva livre. Profundidade <strong>histológica média = 0,69 mm</strong>; já a <strong>Profundidade de Sondagem (PS) clínica em tecido saudável pode chegar a 3 mm</strong> — a sonda penetra levemente no epitélio juncional <span class="tag-fato">FATO</span>.</li>
+</ul>
+</div>
+
+<h3>2.2 Histologia do Epitélio Gengival</h3>
+<table>
+<tr><th>Característica</th><th>Epitélio Oral</th><th>Epitélio Sulcular</th><th>Epitélio Juncional (EJ)</th></tr>
+<tr><td>Espessura</td><td>0,2 a 0,3 mm</td><td>Fino</td><td>Variável (0,97 mm na composição do espaço biológico)</td></tr>
+<tr><td>Queratinização</td><td>Queratinizado (orto/paraqueratinizado)</td><td>Não queratinizado</td><td>Não queratinizado</td></tr>
+<tr><td>Camadas</td><td>Basal, Espinhosa, Granulosa, Ceratinizada</td><td>—</td><td>Alta taxa de renovação celular</td></tr>
+<tr><td>Função principal</td><td>Proteção mecânica</td><td>Barreira seletiva (semipermeável)</td><td>Inserção biológica ao dente</td></tr>
+</table>
+
+<div class="box box-pegadinha">
+<h4>⚠️ Pegadinha: o Epitélio Juncional é o "elo fraco"</h4>
+<p>A permeabilidade do EJ e do epitélio sulcular permite a passagem do <strong>Fluido Crevicular Gengival (FCG)</strong> e de PMNs para o sulco — mas essa via é <strong>bidirecional</strong>: é também por onde subprodutos bacterianos penetram no tecido conjuntivo. É o sítio primário da interação hospedeiro-parasita <span class="tag-fato">FATO</span>.</p>
+</div>
+
+<h3>2.3 Tecido Conjuntivo e Sistema de Fibras Gengivais (Colágenas)</h3>
+<table>
+<tr><th>Fibra</th><th>Trajeto / Função</th></tr>
+<tr><td><strong>Circulares</strong></td><td>Circundam o dente no tecido conjuntivo da gengiva livre — mantêm o "colarinho" gengival ajustado.</td></tr>
+<tr><td><strong>Dentogengivais</strong></td><td>Partem do cemento e projetam-se em leque para a gengiva marginal.</td></tr>
+<tr><td><strong>Dentoperiostais</strong></td><td>Partem do cemento e inserem-se no periósteo do osso alveolar.</td></tr>
+<tr><td><strong>Transeptais</strong></td><td>Estendem-se interproximalmente sobre a crista óssea, unindo o cemento de dentes vizinhos.</td></tr>
+</table>
+
+<div class="box box-mnemonico">
+<h4>🧠 Mnemônico — Fibras gengivais "CDDT"</h4>
+<p><strong>C</strong>ircular (Cinto), <strong>D</strong>entogengival (Dente → Gengiva), <strong>D</strong>entoperiostal (Dente → Periósteo/osso), <strong>T</strong>ranseptal (Transpõe entre dentes vizinhos, por cima da crista).<br>
+Frase: <em>"Cintos Dão Deslize ao Trânsito"</em> (Circular - Dentogengival - Dentoperiostal - Transeptal).</p>
+</div>
+
+<div class="box box-conceito">
+<h4>⭐ Espaço Biológico (Distância Biológica) — alta incidência em prova</h4>
+<p>Total = <strong>2,04 mm</strong>, composto por:</p>
+<ul>
+<li><strong>Epitélio Juncional = 0,97 mm</strong></li>
+<li><strong>Inserção Conjuntiva = 1,07 mm</strong></li>
+</ul>
+<p>A invasão desse espaço por restaurações (margens subgengivais profundas) desencadeia inflamação crônica e reabsorção óssea, pois o organismo tenta restabelecer essas medidas <span class="tag-fato">FATO</span>.</p>
+</div>
+
+<div class="box box-mnemonico">
+<h4>🧠 Mnemônico — Espaço Biológico "0,97 + 1,07 = 2,04"</h4>
+<p>Pense em ordem crescente e "quase espelhada": <strong>0,97 (EJ)</strong> vem antes de <strong>1,07 (Conjuntiva)</strong>, somando <strong>2,04</strong>. Truque: o EJ é o "menorzinho" porque é mais superficial; a inserção conjuntiva, mais profunda, é "um pouquinho maior".</p>
+</div>
+
+<h3>2.4 Fisiologia do Periodonto de Sustentação</h3>
+<table>
+<tr><th>Estrutura</th><th>Características principais</th></tr>
+<tr><td><strong>Ligamento Periodontal (LP)</strong></td><td>Tecido conjuntivo frouxo, <strong>altamente vascularizado</strong> e inervado (trigêmeo). Espessura média = <strong>0,25 mm</strong>. Formato de <strong>ampulheta</strong> (mais estreito no terço médio radicular = fulcro/eixo de rotação em movimentos dentários).</td></tr>
+<tr><td><strong>Cemento Radicular</strong></td><td>Mineralizado, <strong>avascular</strong>, sem inervação. Colágeno predominante <strong>Tipos I e III</strong>. <strong>Não sofre remodelação/reabsorção fisiológica</strong> (diferente do osso), mas tem capacidade de <strong>reparo</strong> (cemento celular secundário).</td></tr>
+<tr><td><strong>Osso Alveolar</strong></td><td>Forma e sustenta os alvéolos; <strong>Crista Alveolar</strong> = nível ósseo mais coronário, referência radiográfica chave no diagnóstico de reabsorção. Em constante remodelação.</td></tr>
+<tr><td><strong>Fibras de Sharpey</strong></td><td>Extremidades das fibras colágenas do LP que se inserem no cemento e no osso alveolar, garantindo a ancoragem.</td></tr>
+</table>
+
+<div class="box box-pegadinha">
+<h4>⚠️ Pegadinhas clássicas de vascularização/remodelação</h4>
+<ul>
+<li>O <strong>Ligamento Periodontal é ricamente vascularizado</strong>; o <strong>Cemento é totalmente avascular</strong>.</li>
+<li>O <strong>osso alveolar</strong> está em constante remodelação; o <strong>cemento NÃO</strong> sofre remodelação fisiológica (mas pode se reparar).</li>
+<li><strong>Sondagem ≠ Sulco histológico:</strong> PS clínica saudável (até 3 mm) ≠ profundidade histológica do sulco (0,69 mm).</li>
+</ul>
+</div>
+
+<div class="box box-conceito">
+<h4>Teorias de absorção de força oclusal</h4>
+<p>Duas teorias explicam como o LP absorve forças mastigatórias <span class="tag-hipotese">MODELO TEÓRICO</span>:</p>
+<ul>
+<li><strong>Teoria Tensional:</strong> as fibras principais do LP tracionam o osso.</li>
+<li><strong>Teoria Viscoelástica:</strong> deslocamento controlado por fluidos dentro do LP.</li>
+</ul>
+<p>O <strong>trauma oclusal</strong> ocorre quando as forças excedem a capacidade adaptativa desse sistema de amortecimento.</p>
+</div>
+
+<h3>2.5 Critérios visuais de gengiva clinicamente saudável</h3>
+<ul>
+<li><strong>Cor:</strong> rosa-coral (equilíbrio entre vascularização, queratinização e pigmentação).</li>
+<li><strong>Aspecto:</strong> "casca de laranja" — pontilhado (<em>stippling</em>) na gengiva inserida, devido às projeções epiteliais (papilas) na lâmina própria.</li>
+<li><strong>Consistência:</strong> firme e resiliente (alto teor de colágeno na lâmina própria).</li>
+<li><strong>Contorno:</strong> festonado.</li>
+<li><strong>Sangramento à sondagem (SS):</strong> ausente ou em &lt;10% dos sítios.</li>
+</ul>
+
+<div class="box box-mnemonico">
+<h4>🧠 Mnemônico — Gengiva sadia "CCC-F"</h4>
+<p><strong>C</strong>or rosa-coral, <strong>C</strong>onsistência firme, <strong>C</strong>asca de laranja (pontilhado), <strong>F</strong>estonada e sem sangramento (Flow de sangue ausente).</p>
+</div>
+
+<div class="top-link"><a href="#sec15">↓ Ir para o Banco de Questões</a></div>
+</section>
+
+<section class="secao" id="sec3">
+<h2>3. Classificações</h2>
+
+<h3>3.1 Sequência Lógica das Doenças Periodontais</h3>
+<div class="fluxo">
+<div class="fluxo-item">1. Saúde Periodontal<br><small>SS &lt; 10%</small></div>
+<div class="fluxo-seta">→</div>
+<div class="fluxo-item">2. Gengivite<br><small>SS ≥ 10%, sem NIC<br>Reversível</small></div>
+<div class="fluxo-seta">→</div>
+<div class="fluxo-item alerta">3. Periodontite<br><small>Perda de NIC + osso<br>Irreversível</small></div>
+</div>
+<p>Paralelamente, há um quarto grupo: <strong>Doenças Necrosantes</strong> — formas agudas e graves (gengivite, periodontite ou estomatite necrosante), associadas a falhas imunes (ex.: HIV/AIDS, desnutrição), com necrose papilar, dor intensa, sangramento e halitose.</p>
+
+<h3>3.2 Classificação 2018 (World Workshop 2017) — Periodontite</h3>
+<p>Utiliza dois eixos: <strong>Estágio</strong> (gravidade/complexidade — "o estrago já feito") e <strong>Grau</strong> (velocidade de progressão e risco — "o velocímetro").</p>
+
+<div class="box box-mnemonico">
+<h4>🧠 Analogia — Estágio = "reforma da casa" / Grau = "velocímetro"</h4>
+<ul>
+<li><strong>Estágio I:</strong> pequena rachadura (incipiente).</li>
+<li><strong>Estágio II:</strong> dano moderado na parede.</li>
+<li><strong>Estágio III:</strong> perda de partes da estrutura, mas a casa ainda está em pé.</li>
+<li><strong>Estágio IV:</strong> risco de desabamento total — reabilitação complexa.</li>
+</ul>
+<ul>
+<li><strong>Grau A:</strong> pedestre (lento).</li>
+<li><strong>Grau B:</strong> carro na cidade (moderado).</li>
+<li><strong>Grau C:</strong> carro de corrida (rápido).</li>
+</ul>
+</div>
+
+<h4>Tabela de Estágios (Severidade/Complexidade) — alta incidência</h4>
+<table>
+<tr><th>Característica</th><th>Estágio I (Leve/Incipiente)</th><th>Estágio II (Moderada)</th><th>Estágio III (Grave)</th><th>Estágio IV (Muito Grave)</th></tr>
+<tr><td><strong>Perda de Inserção (NIC)</strong></td><td>1 a 2 mm</td><td>3 a 4 mm</td><td>≥ 5 mm</td><td>≥ 5 mm</td></tr>
+<tr><td><strong>Perda Óssea (RX)</strong></td><td>Terço coronário (&lt;15%)</td><td>Terço coronário (15–30%)</td><td>Estende-se ao terço médio ou apical</td><td>Estende-se ao terço médio ou apical</td></tr>
+<tr><td><strong>Perda Dentária por periodontite</strong></td><td>Nenhuma</td><td>Nenhuma</td><td>≤ 4 dentes</td><td>≥ 5 dentes</td></tr>
+<tr><td><strong>Complexidade</strong></td><td>PS ≤ 4 mm; perda óssea horizontal</td><td>PS ≤ 5 mm; perda óssea horizontal</td><td>Defeitos verticais; furca classe II/III</td><td>Reabilitação complexa; colapso de mordida; mobilidade grau 3; &lt;20 dentes</td></tr>
+</table>
+
+<div class="box box-mnemonico">
+<h4>🧠 Mnemônico — Estágios pelo NIC "1-2 / 3-4 / ≥5 / ≥5"</h4>
+<p>I e II andam em pares progressivos (1-2mm, 3-4mm). A partir do III, o NIC "estaciona" em ≥5mm — o que diferencia III de IV não é mais o NIC, e sim a <strong>perda dentária</strong> (≤4 = III; ≥5 = IV) e a <strong>complexidade</strong> (reabilitação).</p>
+</div>
+
+<h4>Tabela de Graus (Risco/Velocidade de Progressão)</h4>
+<table>
+<tr><th>Grau</th><th>Critério primário (evidência direta)</th><th>Fatores modificadores (indiretos)</th></tr>
+<tr><td><strong>A — Lenta</strong></td><td>Sem perda de inserção nos últimos 5 anos</td><td>Biofilme pesado com baixa destruição (discrepância biofilme/destruição)</td></tr>
+<tr><td><strong>B — Moderada</strong></td><td>Perda &lt; 2 mm nos últimos 5 anos</td><td>Destruição compatível com a quantidade de biofilme</td></tr>
+<tr><td><strong>C — Rápida</strong></td><td>Perda ≥ 2 mm nos últimos 5 anos</td><td>Destruição excede o biofilme presente; fumo ≥ 10 cigarros/dia OU Diabetes com HbA1c ≥ 7%</td></tr>
+</table>
+
+<div class="box box-pegadinha">
+<h4>⚠️ Pegadinha: o que muda o Grau?</h4>
+<p>Fumo (≥10 cigarros/dia) e Diabetes mal controlada (HbA1c ≥7%) são <strong>fatores modificadores que empurram a classificação para o Grau C</strong>, independentemente do achado radiográfico isolado. Bancas adoram inserir "paciente fumante de 15 cigarros/dia" em casos clínicos para forçar Grau C.</p>
+</div>
+
+<h3>3.3 Gengivite vs. Periodontite — Diagnóstico Diferencial Resumido</h3>
+<table>
+<tr><th>Característica</th><th>Gengivite</th><th>Periodontite</th></tr>
+<tr><td>Perda de Inserção (NIC)</td><td>Ausente</td><td>Presente (em ≥ 2 sítios interproximais não adjacentes)</td></tr>
+<tr><td>Crista Alveolar (RX)</td><td>Intacta</td><td>Reabsorção visível</td></tr>
+<tr><td>Sangramento</td><td>Presente (&gt;10% dos sítios)</td><td>Presente</td></tr>
+<tr><td>Reversibilidade</td><td>Totalmente reversível</td><td>Irreversível (sequela permanente)</td></tr>
+</table>
+<p>A gengivite, conforme localização do sangramento, pode ser:</p>
+<ul>
+<li><strong>Localizada:</strong> 10% a 30% dos sítios com sangramento.</li>
+<li><strong>Generalizada:</strong> &gt; 30% dos sítios.</li>
+</ul>
+
+<div class="top-link"><a href="#sec15">↓ Ir para o Banco de Questões</a></div>
+</section>
+
+
+<section class="secao" id="sec4">
+<h2>4. Etiologia / Fatores de Risco</h2>
+
+<div class="box box-conceito">
+<h4>O biofilme como pilar central</h4>
+<p>O biofilme dental é o agente etiológico <strong>primário e necessário</strong> ("condição <em>sine qua non</em>") para a instalação da gengivite e o ponto de partida da periodontite <span class="tag-fato">FATO</span>.</p>
+</div>
+
+<h3>4.1 O marco histórico: Löe, Theilade &amp; Jensen (1965) — "Gengivite Experimental em Humanos"</h3>
+<table>
+<tr><th>Elemento do estudo</th><th>Dado</th></tr>
+<tr><td>Amostra</td><td><strong>12 indivíduos</strong> com saúde gengival prévia</td></tr>
+<tr><td>Indução da gengivite</td><td>Suspensão total da higiene → gengivite clínica em <strong>3 semanas (21 dias)</strong> em 100% dos participantes</td></tr>
+<tr><td>Reversão</td><td>Retorno da higiene mecânica → saúde restabelecida em <strong>7 dias</strong></td></tr>
+<tr><td>Conclusão</td><td>O biofilme é necessário e suficiente para a gengivite; a remoção mecânica é o método mais eficiente de reversão</td></tr>
+</table>
+
+<div class="box box-mnemonico">
+<h4>🧠 Mnemônico — Löe et al. "12-3-7"</h4>
+<p><strong>12</strong> pessoas → <strong>3</strong> semanas sem higiene = doença → <strong>7</strong> dias com higiene = cura.<br>
+Truque para não trocar: "3 semanas para ADOECER, 7 dias para CURAR" — o tempo de adoecer é <strong>maior</strong> que o de curar, pois destruir leva mais tempo que reorganizar a resposta inflamatória inicial.</p>
+</div>
+
+<h3>4.2 Fatores que limitam o controle mecânico (alvos clássicos de prova)</h3>
+<table>
+<tr><th>Fator</th><th>Por que limita o controle mecânico?</th></tr>
+<tr><td><strong>Anatomia crítica</strong></td><td>Bolsas profundas, invasões de furca e irregularidades radiculares impedem o acesso das cerdas/fio dental</td></tr>
+<tr><td><strong>Translocação bacteriana</strong></td><td>Reservatórios no dorso da língua e amígdalas permitem recolonização rápida dos dentes</td></tr>
+<tr><td><strong>Baixa adesão/destreza</strong></td><td>&lt; 10% da população usa fio dental de forma eficaz; limitações motoras e aparelhos ortodônticos/protéticos aumentam o risco</td></tr>
+</table>
+
+<div class="box box-mnemonico">
+<h4>🧠 Mnemônico — "menos de 10% usa fio"</h4>
+<p>Associe: <strong>10%</strong> é também o limiar de SS para saúde periodontal. Truque mental: "só 1 em cada 10 pessoas passa fio — e é o mesmo '10' que separa saúde de gengivite".</p>
+</div>
+
+<h3>4.3 Fatores de risco modificadores da Periodontite (Grau)</h3>
+<ul>
+<li><strong>Tabagismo:</strong> ≥ 10 cigarros/dia → desloca para Grau C.</li>
+<li><strong>Diabetes Mellitus:</strong> HbA1c ≥ 7% (mal controlada) → desloca para Grau C.</li>
+<li><strong>Genética/sistêmico:</strong> doenças que afetam a resposta imune (relevante também para Doenças Necrosantes — ex.: HIV/AIDS).</li>
+</ul>
+
+<div class="top-link"><a href="#sec15">↓ Ir para o Banco de Questões</a></div>
+</section>
+
+<section class="secao" id="sec5">
+<h2>5. Fisiopatologia (Fluxograma)</h2>
+
+<div class="box box-conceito">
+<h4>O "shift microbiano" (mudança de pirâmide ecológica)</h4>
+<p>A saúde periodontal é caracterizada pelo predomínio de <strong>cocos Gram-positivos</strong> (complexos azul, amarelo e verde, segundo Socransky). A ausência de higiene promove acúmulo e maturação do biofilme, com transição para <strong>bastonetes Gram-negativos anaeróbios</strong> (complexo vermelho) <span class="tag-fato">FATO — modelo de Socransky</span>.</p>
+</div>
+
+<h3>Fluxograma de progressão (Saúde → Doença → Reversão)</h3>
+<div class="fluxo">
+<div class="fluxo-item">Ausência de Higiene</div>
+<div class="fluxo-seta">→</div>
+<div class="fluxo-item">Shift Microbiano<br><small>Gram+ → Gram−</small></div>
+<div class="fluxo-seta">→</div>
+<div class="fluxo-item">Acúmulo de Biofilme</div>
+<div class="fluxo-seta">→</div>
+<div class="fluxo-item alerta">Resposta Inflamatória do Hospedeiro</div>
+<div class="fluxo-seta">→</div>
+<div class="fluxo-item alerta">Gengivite Clínica</div>
+</div>
+<div class="fluxo">
+<div class="fluxo-item alerta">Gengivite Clínica</div>
+<div class="fluxo-seta">→</div>
+<div class="fluxo-item">Controle Mecânico + Químico</div>
+<div class="fluxo-seta">→</div>
+<div class="fluxo-item">Reversão (Saúde)</div>
+</div>
+<p><strong>Se não houver controle:</strong> a inflamação crônica sustentada leva à perda progressiva de inserção e osso → <strong>Periodontite</strong> (irreversível).</p>
+
+<h3>Eixo histológico de defesa (do externo para o interno)</h3>
+<div class="fluxo">
+<div class="fluxo-item">Biofilme no sulco</div>
+<div class="fluxo-seta">→</div>
+<div class="fluxo-item">Epitélio Sulcular (barreira seletiva)</div>
+<div class="fluxo-seta">→</div>
+<div class="fluxo-item alerta">Epitélio Juncional (elo fraco)</div>
+<div class="fluxo-seta">→</div>
+<div class="fluxo-item">Tecido Conjuntivo / Lâmina Própria</div>
+<div class="fluxo-seta">→</div>
+<div class="fluxo-item alerta">Ligamento Periodontal e Osso (se houver progressão)</div>
+</div>
+
+<div class="top-link"><a href="#sec15">↓ Ir para o Banco de Questões</a></div>
+</section>
+
+
+<section class="secao" id="sec6">
+<h2>6. Quadro Clínico</h2>
+
+<h3>6.1 Sinais cardinais da inflamação gengival</h3>
+<table>
+<tr><th>Sinal</th><th>Descrição</th><th>Observação de prova</th></tr>
+<tr><td><strong>Sangramento à sondagem (SS)</strong></td><td>Sinal mais precoce de inflamação</td><td>Critério numérico: saúde &lt;10%; gengivite localizada 10–30%; generalizada &gt;30%</td></tr>
+<tr><td><strong>Eritema</strong></td><td>Vermelhidão por vasodilatação/aumento de permeabilidade vascular</td><td>—</td></tr>
+<tr><td><strong>Edema</strong></td><td>Alteração de contorno/volume gengival</td><td>Perda do festonamento e do pontilhado ("casca de laranja")</td></tr>
+</table>
+
+<h3>6.2 Quadro clínico nas Doenças Necrosantes</h3>
+<ul>
+<li><strong>Dor intensa</strong> (impede higiene mecânica habitual).</li>
+<li><strong>Necrose/ulceração das papilas interdentais</strong> ("decapitação" da papila).</li>
+<li><strong>Sangramento espontâneo.</strong></li>
+<li><strong>Halitose</strong> característica.</li>
+<li>Associação frequente com <strong>imunossupressão</strong> (HIV/AIDS, desnutrição, estresse intenso, tabagismo pesado).</li>
+</ul>
+
+<h3>6.3 Quadro clínico na Periodontite estabelecida</h3>
+<ul>
+<li>Sangramento à sondagem.</li>
+<li>Aumento da PS (formação de bolsa periodontal verdadeira).</li>
+<li>Recessão gengival e/ou aumento de profundidade de bolsa.</li>
+<li>Mobilidade dentária (graus 0 a 3).</li>
+<li>Envolvimento de furca (graus I, II, III — avaliados com sonda Nabers).</li>
+<li>Halitose, supuração em casos avançados.</li>
+<li>Em estágios avançados: migração dentária, diastemas adquiridos, colapso de mordida.</li>
+</ul>
+
+<div class="top-link"><a href="#sec15">↓ Ir para o Banco de Questões</a></div>
+</section>
+
+
+<section class="secao" id="sec7">
+<h2>7. Diagnóstico (Critérios, Exames e Valores)</h2>
+
+<h3>7.1 Critérios diagnósticos fundamentais</h3>
+<table>
+<tr><th>Sigla</th><th>Significado</th><th>Definição</th></tr>
+<tr><td><strong>PS</strong></td><td>Profundidade de Sondagem</td><td>Distância da margem gengival até o fundo da bolsa/sulco</td></tr>
+<tr><td><strong>NIC</strong></td><td>Nível de Inserção Clínica</td><td>Distância da Junção Esmalte-Cemento (JEC) até o fundo da bolsa/sulco. Fórmula prática: <strong>NIC = PS + Recessão</strong> (ou NIC = PS + margem gengival, se houver recessão)</td></tr>
+<tr><td><strong>SS</strong></td><td>Sangramento à Sondagem</td><td>Índice de atividade inflamatória; corte de 10% diferencia saúde de gengivite</td></tr>
+</table>
+
+<div class="box box-mnemonico">
+<h4>🧠 Mnemônico — PS vs NIC</h4>
+<p><strong>PS</strong> mede a partir da <strong>gengiva</strong> (estrutura móvel, pode mudar com inflamação/recessão).<br>
+<strong>NIC</strong> mede a partir da <strong>JEC</strong> (estrutura fixa do dente — referência que "não se move").<br>
+Por isso o NIC é o parâmetro usado para classificar Estágio na periodontite — é mais confiável.</p>
+</div>
+
+<h3>7.2 Fluxo de exame periodontal (sequência clínica recomendada)</h3>
+<div class="fluxo">
+<div class="fluxo-item">1. Anamnese<br><small>diabetes, fumo, nifedipina</small></div>
+<div class="fluxo-seta">→</div>
+<div class="fluxo-item">2. Exame físico extra/intraoral<br><small>linfonodos, lábios, língua, palato</small></div>
+<div class="fluxo-seta">→</div>
+<div class="fluxo-item">3. Índices de biofilme e SS</div>
+<div class="fluxo-seta">→</div>
+<div class="fluxo-item">4. Periograma (sondagem)<br><small>PS, NIC, recessão, furca, mobilidade</small></div>
+<div class="fluxo-seta">→</div>
+<div class="fluxo-item">5. Exame radiográfico<br><small>crista óssea, padrão de perda</small></div>
+<div class="fluxo-seta">→</div>
+<div class="fluxo-item alerta">6. Diagnóstico (Estágio/Grau) + Plano de TPNC</div>
+</div>
+
+<div class="box box-mnemonico">
+<h4>🧠 Mnemônico — Sequência do exame "A-E-I-P-R-D"</h4>
+<p><strong>A</strong>namnese → <strong>E</strong>xame físico → <strong>Í</strong>ndices (biofilme/SS) → <strong>P</strong>eriograma → <strong>R</strong>adiografia → <strong>D</strong>iagnóstico/plano.<br>
+Frase: "<em>Anamnese, Exame, Índices, Periograma, Raio-X, Diagnóstico</em>" — siga essa ordem em provas práticas e na clínica.</p>
+</div>
+
+<h3>7.3 Instrumental de sondagem</h3>
+<table>
+<tr><th>Sonda</th><th>Características</th><th>Indicação</th></tr>
+<tr><td><strong>Carolina do Norte</strong></td><td>Milimetrada de 1 em 1 mm, até 15 mm; padrão-ouro</td><td>Periograma completo (PS e NIC)</td></tr>
+<tr><td><strong>Nabers</strong></td><td>Curva e romba</td><td>Detecção e classificação de lesões de furca</td></tr>
+<tr><td><strong>OMS (WHO)</strong></td><td>Esfera na ponta</td><td>Triagem (screening)</td></tr>
+</table>
+
+<div class="box box-pegadinha">
+<h4>⚠️ Pressão de sondagem</h4>
+<p>A pressão recomendada na sondagem é de aproximadamente <strong>0,25 N</strong> (não usar força excessiva). A sonda deve "caminhar" pelo sulco/bolsa, paralela ao longo eixo do dente.</p>
+</div>
+
+<h3>7.4 Valores numéricos críticos — quadro-resumo</h3>
+<table>
+<tr><th>Parâmetro</th><th>Valor</th><th>Contexto</th></tr>
+<tr><td>SS para saúde</td><td>&lt; 10%</td><td>Define saúde periodontal clínica</td></tr>
+<tr><td>SS gengivite localizada</td><td>10–30%</td><td>Classificação de extensão da gengivite</td></tr>
+<tr><td>SS gengivite generalizada</td><td>&gt; 30%</td><td>Classificação de extensão da gengivite</td></tr>
+<tr><td>Sulco histológico</td><td>0,69 mm</td><td>Profundidade histológica média</td></tr>
+<tr><td>PS clínica saudável</td><td>até 3 mm</td><td>Sondagem em tecido sadio</td></tr>
+<tr><td>Espaço biológico</td><td>2,04 mm (0,97 + 1,07)</td><td>EJ + Inserção Conjuntiva</td></tr>
+<tr><td>Espessura do LP</td><td>0,25 mm</td><td>Formato de ampulheta</td></tr>
+<tr><td>Ângulo de sondagem (cureta)</td><td>70°–80°</td><td>Ângulo ativo da lâmina com a raiz na RAR</td></tr>
+<tr><td>Ângulo de afiação</td><td>100°–110°</td><td>Entre face da lâmina e pedra de afiar</td></tr>
+<tr><td>Pressão de sondagem</td><td>≈ 0,25 N</td><td>Força recomendada</td></tr>
+</table>
+
+<div class="top-link"><a href="#sec15">↓ Ir para o Banco de Questões</a></div>
+</section>
+
+<section class="secao" id="sec8">
+<h2>8. Diagnóstico Diferencial</h2>
+
+<table>
+<tr><th>Condição</th><th>NIC</th><th>Crista óssea (RX)</th><th>Sangramento</th><th>Reversibilidade</th><th>Outras pistas</th></tr>
+<tr><td><strong>Saúde Periodontal</strong></td><td>Ausente</td><td>Intacta</td><td>&lt; 10% dos sítios</td><td>—</td><td>Cor rosa-coral, contorno festonado, pontilhado presente</td></tr>
+<tr><td><strong>Gengivite</strong></td><td>Ausente</td><td>Intacta</td><td>≥ 10% dos sítios (presente)</td><td>Totalmente reversível</td><td>Inflamação restrita à gengiva marginal</td></tr>
+<tr><td><strong>Periodontite</strong></td><td>Presente (≥2 sítios interproximais não adjacentes)</td><td>Reabsorção visível</td><td>Presente</td><td>Irreversível (sequela permanente)</td><td>Estágio/Grau definidos por NIC, perda óssea, perda dentária, complexidade e velocidade</td></tr>
+<tr><td><strong>Doenças Necrosantes</strong></td><td>Variável</td><td>Variável</td><td>Espontâneo, intenso</td><td>—</td><td>Necrose papilar, dor, halitose; associadas a imunossupressão</td></tr>
+</table>
+
+<div class="box box-pegadinha">
+<h4>⚠️ Pegadinha clássica: "sangramento sem perda de inserção"</h4>
+<p>Um paciente com sangramento em 15% dos sítios e <strong>sem qualquer perda de inserção</strong> é classificado como <strong>Gengivite Localizada induzida por biofilme</strong> — não periodontite, mesmo que o sangramento pareça "significativo". O critério decisivo é sempre a <strong>presença ou ausência de NIC + perda óssea radiográfica</strong>.</p>
+</div>
+
+<div class="top-link"><a href="#sec15">↓ Ir para o Banco de Questões</a></div>
+</section>
+
+
+<section class="secao" id="sec9">
+<h2>9. Tratamento</h2>
+
+<h3>9.1 Princípio geral — Terapia Periodontal Não Cirúrgica (TPNC)</h3>
+<p>A base do tratamento é a <strong>Raspagem e Alisamento Radicular (RAR)</strong>, associada à Instrução de Higiene Oral (IHO) e controle de placa. O controle químico é <strong>adjuvante</strong>, nunca substituto do mecânico em pacientes saudáveis com boa destreza.</p>
+
+<div class="box box-conceito">
+<h4>⭐ A "regra dos 50/50" — comunicação com o paciente</h4>
+<p>O tratamento clínico (RAR/manutenção) corresponde a <strong>50% do sucesso</strong>; os outros <strong>50% dependem da higiene oral diária do paciente em casa</strong>. Use essa proporção ao explicar adesão ao tratamento.</p>
+</div>
+
+<h3>9.2 Instrumentação manual — Curetas Gracey (seleção por sítio)</h3>
+<table>
+<tr><th>Cureta</th><th>Indicação</th></tr>
+<tr><td><strong>5/6</strong></td><td>Dentes anteriores e pré-molares (faces livres/todas as faces)</td></tr>
+<tr><td><strong>7/8</strong></td><td>Dentes posteriores — faces vestibulares e linguais/palatinas</td></tr>
+<tr><td><strong>11/12</strong></td><td>Dentes posteriores — face <strong>mesial</strong></td></tr>
+<tr><td><strong>13/14</strong></td><td>Dentes posteriores — face <strong>distal</strong></td></tr>
+</table>
+
+<div class="box box-mnemonico">
+<h4>🧠 Mnemônico — "11/12 = Mesial; 13/14 = Distal"</h4>
+<p>Pense em ordem alfabética/numérica: <strong>M</strong>esial vem antes de <strong>D</strong>istal no "percurso" da boca, e <strong>11/12</strong> é o número menor, vindo antes de <strong>13/14</strong>. Menor número → mesial; maior número → distal.</p>
+<p>Erro técnico clássico de prova: tentar raspar face distal com 11/12. <strong>Lembre-se: Distal = 13/14.</strong></p>
+</div>
+
+<h3>9.3 Outros instrumentos</h3>
+<table>
+<tr><th>Instrumento</th><th>Indicação</th></tr>
+<tr><td><strong>Cureta McCall (13/14 ou 17/18)</strong></td><td>Universal, todas as faces, predominantemente raspagem supragengival</td></tr>
+<tr><td><strong>Foice McCall (11/12)</strong></td><td>Espaço interproximal de dentes posteriores</td></tr>
+</table>
+
+<h3>9.4 Técnica de raspagem e ergonomia</h3>
+<ul>
+<li>Movimento controlado, com <strong>apoio digital firme</strong> em dentes vizinhos.</li>
+<li>Movimentos verticais, oblíquos ou horizontais.</li>
+<li>Ângulo de trabalho da lâmina com a raiz: <strong>70° a 80°</strong>.</li>
+<li><strong>Afiação:</strong> instrumento cego exige mais força → menor precisão → mais fadiga. Pedras de <strong>Arkansas</strong> (naturais, acabamento fino) ou <strong>Índia</strong> (sintéticas, instrumentos muito cegos). Ângulo entre face da lâmina e pedra: <strong>100°–110°</strong>.</li>
+<li><strong>Ergonomia:</strong> costas retas, pés apoiados no chão, evitar flexões excessivas do punho, manter instrumentos sempre afiados (previne LER).</li>
+</ul>
+
+<h3>9.5 Controle Químico do Biofilme — Tabela de agentes</h3>
+<table>
+<tr><th>Agente</th><th>Mecanismo</th><th>Substantividade</th><th>Notas / efeitos colaterais</th></tr>
+<tr><td><strong>Clorexidina (CHX)</strong></td><td>Bisbiguanida catiônica; rompe membrana e precipita proteínas citoplasmáticas. Bacteriostática (baixa conc.) e bactericida (alta conc.)</td><td><strong>Alta (12h)</strong> — padrão-ouro</td><td>Manchamento extrínseco, alteração de paladar, aumento de cálculo supragengival. Posologia: <strong>0,2% — 10 mL por 30s</strong> ou <strong>0,12% — 15 mL por 1 min</strong>, 2x/dia</td></tr>
+<tr><td><strong>Triclosan (+PVM/MA)</strong></td><td>Agente bifenólico não iônico, amplo espectro; associado ao copolímero PVM/MA (aumenta substantividade) e citrato de zinco (anti-tártaro)</td><td>Média (5h)</td><td>Ação anti-inflamatória; menos efeitos colaterais que CHX</td></tr>
+<tr><td><strong>Óleos Essenciais</strong></td><td>Rompem parede celular, inibem enzimas; ação anti-inflamatória</td><td>Baixa</td><td>26,9% de álcool → causa ardência</td></tr>
+<tr><td><strong>LSS (Lauril Sulfato de Sódio)</strong></td><td>Surfactante/detergente</td><td>5 a 7 horas</td><td>Presente na maioria dos dentifrícios</td></tr>
+<tr><td><strong>Cloreto de Cetilpiridínio</strong></td><td>Composto quaternário de amônio, monocatiônico</td><td>Baixa (3–5h)</td><td>Menos eficaz que CHX a longo prazo</td></tr>
+<tr><td><strong>Delmopinol / Octapinol (aminoálcoois)</strong></td><td>Interferem na síntese e adesão/coesão do biofilme</td><td>Baixa</td><td>Pode causar dormência/anestesia na língua</td></tr>
+<tr><td><strong>Iodopovidona</strong></td><td>Antibacteriano</td><td>Baixa (1h)</td><td>Adjunto à RAR ou em DPN</td></tr>
+<tr><td><strong>Agentes Oxidantes (H₂O₂)</strong></td><td>Liberação de oxigênio; reduz índice gengival em inflamações agudas</td><td>Baixa</td><td>Uso prolongado → úlceras mucosas e "língua pilosa"</td></tr>
+</table>
+
+<div class="box box-mnemonico">
+<h4>🧠 Mnemônico — Substantividade em ordem decrescente "CHX-LSS-Tri-CCP-Iodo"</h4>
+<p><strong>C</strong>HX (12h) &gt; <strong>L</strong>SS (5–7h) &gt; <strong>Tri</strong>closan (5h) &gt; <strong>C</strong>etilpiridínio (3–5h) &gt; <strong>Iodo</strong>povidona (1h).<br>
+Frase: "<em>Cada Lavagem Tem Cheiro Ímpar</em>" — do mais duradouro (Clorexidina) ao menos duradouro (Iodopovidona).</p>
+</div>
+
+<h3>9.6 Indicações do controle químico (sempre adjuvante)</h3>
+<ul>
+<li><strong>Pós-operatório imediato</strong> (cirurgia periodontal, RAR com dor à escovação).</li>
+<li><strong>Doenças Periodontais Necrosantes (DPN)</strong> — uso de Clorexidina ou agentes oxidantes, pois a dor impede a higiene mecânica.</li>
+<li><strong>Controle de bacteremia</strong> pré-procedimentos geradores de aerossol.</li>
+<li><strong>Pacientes com necessidades especiais</strong> (deficiência física/mental que limite destreza).</li>
+<li><strong>Peri-implantite</strong> (CHX para desinfecção local).</li>
+</ul>
+
+<div class="box box-pegadinha">
+<h4>⚠️ Antibióticos sistêmicos — "Regra de Ouro"</h4>
+<p>Antibióticos sistêmicos <strong>NÃO são recomendados</strong> para controle rotineiro de biofilme, devido ao risco de <strong>resistência bacteriana</strong>. Reservam-se para condições sistêmicas associadas ou periodontites específicas (ex.: formas agressivas/necrosantes refratárias). Uso tópico tem ação limitada se o biofilme não for removido mecanicamente primeiro.</p>
+</div>
+
+<h3>9.7 Comunicação com o paciente — frases-modelo</h3>
+<ul>
+<li><strong>Biofilme:</strong> "É uma camada invisível de bactérias que se adere aos dentes. Se não removida, inflama a gengiva e inicia a destruição do osso."</li>
+<li><strong>Sangramento:</strong> "Gengiva saudável não sangra. Se sua mão sangrasse ao lavar, você se preocuparia — o mesmo vale para a boca."</li>
+<li><strong>Perda óssea:</strong> "O osso é o 'alicerce' do dente. Se o alicerce some, o dente amolece e pode cair. O tratamento visa paralisar essa perda."</li>
+<li><strong>Papel do paciente:</strong> "Meu trabalho é 50% do sucesso; os outros 50% dependem da sua higiene diária em casa."</li>
+<li><strong>Manutenção:</strong> "A periodontite é uma doença crônica — mesmo após o tratamento, precisamos de consultas regulares para evitar que a infecção retorne."</li>
+</ul>
+
+<div class="top-link"><a href="#sec15">↓ Ir para o Banco de Questões</a></div>
+</section>
+
+<section class="secao" id="sec10">
+<h2>10. Complicações</h2>
+
+<table>
+<tr><th>Agente/condição</th><th>Complicação</th></tr>
+<tr><td>Clorexidina (uso prolongado)</td><td>Manchamento extrínseco de dentes/língua, alteração de paladar, aumento da formação de cálculo supragengival</td></tr>
+<tr><td>Agentes oxidantes (H₂O₂, uso prolongado)</td><td>Úlceras na mucosa; "língua pilosa"</td></tr>
+<tr><td>Óleos essenciais</td><td>Ardência/queimação devido ao alto teor alcoólico (26,9%)</td></tr>
+<tr><td>Delmopinol</td><td>Dormência/anestesia transitória na língua</td></tr>
+<tr><td>Antibióticos sistêmicos mal indicados</td><td>Resistência bacteriana; disbiose; sem benefício para controle rotineiro</td></tr>
+<tr><td>Instrumento desafiado (cego)</td><td>Maior força necessária → menor precisão → fadiga do operador → risco de LER</td></tr>
+<tr><td>Invasão do espaço biológico (restaurações subgengivais)</td><td>Inflamação crônica e reabsorção óssea (organismo tenta restabelecer 2,04mm)</td></tr>
+<tr><td>Periodontite não tratada</td><td>Progressão para Estágio III/IV: perda dentária, mobilidade grau 3, colapso de mordida, necessidade de reabilitação complexa</td></tr>
+<tr><td>Doenças necrosantes não tratadas</td><td>Destruição tecidual rápida, sequelas estéticas (perda de papila), disseminação sistêmica em imunossuprimidos</td></tr>
+</table>
+
+<div class="top-link"><a href="#sec15">↓ Ir para o Banco de Questões</a></div>
+</section>
+
+
+<section class="secao" id="sec11">
+<h2>11. Tabela Comparativa Geral</h2>
+
+<h3>11.1 Saúde vs. Gengivite vs. Periodontite vs. Doença Necrosante</h3>
+<table>
+<tr><th>Critério</th><th>Saúde</th><th>Gengivite</th><th>Periodontite</th><th>Doença Necrosante</th></tr>
+<tr><td>SS</td><td>&lt;10%</td><td>≥10% (loc. 10–30%; gen. &gt;30%)</td><td>Presente</td><td>Espontâneo/intenso</td></tr>
+<tr><td>NIC</td><td>Ausente</td><td>Ausente</td><td>Presente (≥2 sítios)</td><td>Variável</td></tr>
+<tr><td>Crista óssea</td><td>Intacta</td><td>Intacta</td><td>Reabsorção</td><td>Variável</td></tr>
+<tr><td>Reversibilidade</td><td>—</td><td>Total</td><td>Irreversível</td><td>Depende do controle precoce</td></tr>
+<tr><td>Dor</td><td>Não</td><td>Discreta/ausente</td><td>Variável</td><td>Intensa</td></tr>
+<tr><td>Conduta-chave</td><td>Profilaxia, manutenção</td><td>Profilaxia + IHO</td><td>TPNC (RAR) + IHO + reavaliação</td><td>Desbridamento + adjuvante químico (CHX/oxidante)</td></tr>
+</table>
+
+<h3>11.2 Agentes químicos — comparação rápida (revisão final)</h3>
+<table>
+<tr><th>Agente</th><th>Substantividade</th><th>Padrão-ouro?</th><th>Principal efeito colateral</th></tr>
+<tr><td>Clorexidina</td><td>12h (Alta)</td><td>Sim</td><td>Manchamento, alteração de paladar</td></tr>
+<tr><td>LSS</td><td>5–7h</td><td>Não</td><td>—</td></tr>
+<tr><td>Triclosan + PVM/MA</td><td>5h (Média)</td><td>Não</td><td>Poucos relatados</td></tr>
+<tr><td>Cetilpiridínio</td><td>3–5h (Baixa)</td><td>Não</td><td>Manchamento leve, queimação</td></tr>
+<tr><td>Óleos essenciais</td><td>Baixa</td><td>Não</td><td>Ardência (álcool 26,9%)</td></tr>
+<tr><td>Delmopinol</td><td>Baixa</td><td>Não</td><td>Dormência lingual</td></tr>
+<tr><td>Iodopovidona</td><td>1h (Baixa)</td><td>Não</td><td>—</td></tr>
+</table>
+
+<h3>11.3 Casos clínicos exemplo (treino de raciocínio)</h3>
+<table>
+<tr><th>Caso</th><th>Achados</th><th>Diagnóstico</th><th>Conduta sugerida</th></tr>
+<tr><td>1</td><td>SS &gt;10% em poucos sítios, sem NIC</td><td>Gengivite Localizada</td><td>Profilaxia + IHO + controle de placa</td></tr>
+<tr><td>2</td><td>PS até 5mm, perda óssea moderada, sem progressão acelerada</td><td>Periodontite Estágio II Grau B</td><td>TPNC (RAR) + IHO + reavaliação em 45 dias</td></tr>
+<tr><td>3</td><td>Mobilidade, perda de dentes, progressão rápida</td><td>Periodontite Estágio IV Grau C</td><td>TPNC + possíveis antimicrobianos + planejamento reabilitador complexo + controle rigoroso</td></tr>
+</table>
+
+<div class="top-link"><a href="#sec15">↓ Ir para o Banco de Questões</a></div>
+</section>
+
+
+<section class="secao" id="sec12">
+<h2>12. Pegadinhas de Prova</h2>
+
+<div class="box box-pegadinha">
+<h4>⚠️ 1. Sondagem ≠ Sulco histológico</h4>
+<p>PS clínica saudável pode chegar a <strong>3 mm</strong>; o sulco histológico médio é <strong>0,69 mm</strong>. Não confundir os dois valores.</p>
+</div>
+
+<div class="box box-pegadinha">
+<h4>⚠️ 2. Vascularização e remodelação</h4>
+<p>LP = vascularizado; Cemento = avascular. Osso = remodela; Cemento = NÃO remodela (mas repara).</p>
+</div>
+
+<div class="box box-pegadinha">
+<h4>⚠️ 3. Substantividade ≠ Eficácia/Espectro</h4>
+<p>Substantividade = tempo de retenção do agente na cavidade oral. Eficácia/espectro = amplitude de ação antimicrobiana. As bancas trocam esses dois conceitos propositalmente.</p>
+</div>
+
+<div class="box box-pegadinha">
+<h4>⚠️ 4. Ardência dos óleos essenciais</h4>
+<p>A sensação de ardência <strong>não é falha terapêutica</strong> — é efeito colateral esperado do álcool (26,9%) presente na formulação.</p>
+</div>
+
+<div class="box box-pegadinha">
+<h4>⚠️ 5. Löe et al. — não trocar os tempos</h4>
+<p><strong>3 semanas</strong> = tempo para desenvolver gengivite (indução). <strong>7 dias</strong> = tempo para reverter (cura). Não inverter.</p>
+</div>
+
+<div class="box box-pegadinha">
+<h4>⚠️ 6. Iodopovidona como "distrator"</h4>
+<p>Substantividade de apenas <strong>1h</strong> — frequentemente usada em questões para testar se o aluno confunde "uso adjuvante em DPN" com "alta substantividade".</p>
+</div>
+
+<div class="box box-pegadinha">
+<h4>⚠️ 7. Curetas Gracey 11/12 vs 13/14</h4>
+<p>11/12 = face <strong>mesial</strong>; 13/14 = face <strong>distal</strong> (posteriores). Erro técnico comum: tentar raspar distal com 11/12.</p>
+</div>
+
+<div class="box box-pegadinha">
+<h4>⚠️ 8. Estágio III vs IV — o que realmente diferencia?</h4>
+<p>Ambos têm NIC ≥5mm e perda óssea em terço médio/apical. A diferença está em <strong>perda dentária</strong> (≤4 dentes = III; ≥5 dentes = IV) e <strong>complexidade de reabilitação</strong> (mobilidade grau 3, colapso de mordida, &lt;20 dentes = IV).</p>
+</div>
+
+<div class="box box-pegadinha">
+<h4>⚠️ 9. Grau não depende só do RX</h4>
+<p>Fatores modificadores (fumo ≥10 cigarros/dia, HbA1c ≥7%) podem elevar o Grau para C mesmo sem evidência direta de perda recente — atenção a casos clínicos com esses dados "escondidos" no enunciado.</p>
+</div>
+
+<div class="box box-pegadinha">
+<h4>⚠️ 10. Antibiótico sistêmico não é "padrão" no biofilme</h4>
+<p>A presença de inflamação gengival/periodontal NÃO indica automaticamente antibioticoterapia sistêmica — essa é a "resposta fácil errada" em muitas questões.</p>
+</div>
+
+<div class="top-link"><a href="#sec15">↓ Ir para o Banco de Questões</a></div>
+</section>
+
+<section class="secao" id="sec13">
+<h2>13. Flashcards (Pergunta-Resposta)</h2>
+<p>Clique em cada pergunta para revelar a resposta.</p>
+
+<details class="flashcard"><summary>Qual a medida do Epitélio Juncional no espaço biológico?</summary><div class="resposta">0,97 mm.</div></details>
+<details class="flashcard"><summary>Qual a largura da Inserção Conjuntiva no espaço biológico?</summary><div class="resposta">1,07 mm (totalizando 2,04 mm com o EJ).</div></details>
+<details class="flashcard"><summary>Onde a gengiva inserida é mais estreita?</summary><div class="resposta">Na região de primeiros pré-molares (posteriores), sendo mais larga nos anteriores.</div></details>
+<details class="flashcard"><summary>Quais tipos de colágeno predominam no cemento radicular?</summary><div class="resposta">Tipos I e III.</div></details>
+<details class="flashcard"><summary>Qual o formato do espaço do Ligamento Periodontal?</summary><div class="resposta">Ampulheta — mais estreito no terço médio radicular (fulcro/eixo de rotação).</div></details>
+<details class="flashcard"><summary>Qual o critério principal para diferenciar Gengivite de Periodontite?</summary><div class="resposta">A presença de perda de inserção clínica (NIC) e perda óssea radiográfica caracteriza periodontite; ausência de NIC = gengivite.</div></details>
+<details class="flashcard"><summary>Um paciente com sangramento em 15% dos sítios, mas sem perda de inserção, é classificado como?</summary><div class="resposta">Gengivite localizada induzida por biofilme (10–30% = localizada).</div></details>
+<details class="flashcard"><summary>Qual cureta Gracey é indicada para a face mesial de um dente posterior?</summary><div class="resposta">Gracey 11/12.</div></details>
+<details class="flashcard"><summary>Qual cureta Gracey é indicada para a face distal de um dente posterior?</summary><div class="resposta">Gracey 13/14.</div></details>
+<details class="flashcard"><summary>O que define o "Grau" na classificação de periodontite 2018?</summary><div class="resposta">A evidência ou risco de progressão rápida e a resposta esperada ao tratamento, influenciada por fatores como fumo e diabetes.</div></details>
+<details class="flashcard"><summary>Qual sonda é utilizada especificamente para avaliar lesões de furca?</summary><div class="resposta">Sonda Nabers (curva e romba).</div></details>
+<details class="flashcard"><summary>Qual o marco fixo para medir o Nível de Inserção Clínica (NIC)?</summary><div class="resposta">A Junção Esmalte-Cemento (JEC).</div></details>
+<details class="flashcard"><summary>Paciente com SS de 8% e sem perda de inserção é considerado saudável?</summary><div class="resposta">Sim — saúde periodontal clínica é definida por SS &lt; 10%.</div></details>
+<details class="flashcard"><summary>O fumo de 15 cigarros/dia altera o Grau para qual categoria?</summary><div class="resposta">Grau C (rápida progressão), pois excede o limiar de ≥10 cigarros/dia.</div></details>
+<details class="flashcard"><summary>Qual o ângulo de afiação entre a pedra e a face da cureta?</summary><div class="resposta">100° a 110°.</div></details>
+<details class="flashcard"><summary>Qual o ângulo de trabalho da cureta em relação à raiz durante a RAR?</summary><div class="resposta">70° a 80°.</div></details>
+<details class="flashcard"><summary>Periodontite Estágio III pode envolver perda de quantos dentes pela doença?</summary><div class="resposta">Até 4 dentes (≤4). A partir de 5 dentes perdidos → Estágio IV.</div></details>
+<details class="flashcard"><summary>O que significa a sigla PVM/MA associada ao Triclosan?</summary><div class="resposta">Copolímero (ácido polivinil-metil-éter maleico) que aumenta a retenção/substantividade do Triclosan na cavidade oral.</div></details>
+<details class="flashcard"><summary>Qual o mecanismo de ação da Clorexidina em altas concentrações?</summary><div class="resposta">Ação bactericida, por precipitação de proteínas citoplasmáticas (em baixas concentrações é bacteriostática).</div></details>
+<details class="flashcard"><summary>Qual o tempo de substantividade do Lauril Sulfato de Sódio (LSS)?</summary><div class="resposta">5 a 7 horas.</div></details>
+<details class="flashcard"><summary>Qual a indicação clássica para uso de agentes oxidantes (H₂O₂)?</summary><div class="resposta">Tratamento adjuvante de Doenças Periodontais Necrosantes (DPNs).</div></details>
+<details class="flashcard"><summary>Por que óleos essenciais causam forte sensação de ardência?</summary><div class="resposta">Devido à alta concentração alcoólica da formulação (26,9%).</div></details>
+<details class="flashcard"><summary>Qual agente atua como aminoálcool, interferindo na coesão do biofilme, podendo causar dormência na mucosa?</summary><div class="resposta">Delmopinol (e seu análogo Octapinol).</div></details>
+<details class="flashcard"><summary>Quantos indivíduos participaram do estudo de Löe et al. (1965)?</summary><div class="resposta">12 indivíduos com saúde gengival prévia.</div></details>
+<details class="flashcard"><summary>Em quanto tempo a gengivite se instalou no estudo de Löe et al. após suspensão da higiene?</summary><div class="resposta">3 semanas (21 dias).</div></details>
+<details class="flashcard"><summary>Em quanto tempo a saúde gengival foi restabelecida após retorno da higiene no estudo de Löe et al.?</summary><div class="resposta">7 dias.</div></details>
+<details class="flashcard"><summary>Qual a posologia de Clorexidina 0,2%?</summary><div class="resposta">10 mL por 30 segundos, 2x ao dia.</div></details>
+<details class="flashcard"><summary>Qual a posologia de Clorexidina 0,12%?</summary><div class="resposta">15 mL por 1 minuto, 2x ao dia.</div></details>
+<details class="flashcard"><summary>Qual a pressão de sondagem recomendada?</summary><div class="resposta">Aproximadamente 0,25 N (a sonda "caminha" pelo sulco, paralela ao eixo do dente).</div></details>
+<details class="flashcard"><summary>O que é o "Col" na gengiva interdental?</summary><div class="resposta">Uma depressão não queratinizada, em forma de vale, sob o ponto de contato — particularmente vulnerável à inflamação.</div></details>
+
+<div class="top-link"><a href="#sec15">↓ Ir para o Banco de Questões</a></div>
+</section>
+
+
+<section class="secao" id="sec14">
+<h2>14. Resumo de Revisão em 1 Página (Cheat Sheet)</h2>
+
+<div class="resumo1pag">
+
+<h3>🦷 Anatomia</h3>
+<p><strong>Divisão:</strong> Proteção (Gengiva: Marginal, Inserida, Interdental/Col) | Sustentação (Cemento, Ligamento Periodontal, Osso Alveolar).<br>
+<strong>Espaço Biológico (2,04mm):</strong> Epitélio Juncional (0,97mm) + Inserção Conjuntiva (1,07mm).<br>
+<strong>Ligamento Periodontal:</strong> 0,25mm; ampulheta; vascularizado; sensorial (trigêmeo).<br>
+<strong>Cemento:</strong> avascular; não remodela; fibras de Sharpey; colágeno I e III.<br>
+<strong>Sulco:</strong> histológico 0,69mm; sondagem clínica saudável até 3mm.</p>
+
+<h3>📊 Diagnóstico — limiares decisivos</h3>
+<p><strong>Saúde:</strong> SS &lt;10%.<br>
+<strong>Gengivite:</strong> SS ≥10%, sem NIC (localizada 10–30%; generalizada &gt;30%).<br>
+<strong>Periodontite:</strong> NIC presente (≥2 sítios interproximais não adjacentes) + reabsorção óssea no RX.</p>
+
+<h3>🏷️ Classificação 2018 — Estágio (gravidade) e Grau (velocidade)</h3>
+<p><strong>Estágio I:</strong> NIC 1–2mm, perda óssea &lt;15% (coronário).<br>
+<strong>Estágio II:</strong> NIC 3–4mm, perda óssea 15–30% (coronário).<br>
+<strong>Estágio III:</strong> NIC ≥5mm, perda óssea em terço médio/apical, ≤4 dentes perdidos, defeitos verticais/furca II-III.<br>
+<strong>Estágio IV:</strong> idem III + ≥5 dentes perdidos, reabilitação complexa, mobilidade grau 3, &lt;20 dentes.<br>
+<strong>Grau A:</strong> sem perda em 5 anos. <strong>Grau B:</strong> perda &lt;2mm/5 anos. <strong>Grau C:</strong> perda ≥2mm/5 anos OU fumo ≥10 cig/dia OU HbA1c ≥7%.</p>
+
+<h3>🧪 Controle do Biofilme</h3>
+<p><strong>Marco:</strong> Löe et al. (1965) — 12 indivíduos; 3 semanas (doença); 7 dias (cura).<br>
+<strong>Padrão-ouro químico:</strong> Clorexidina (0,12% por 15mL/1min ou 0,2% por 10mL/30s) — substantividade 12h.<br>
+<strong>Ordem de substantividade:</strong> CHX (12h) &gt; LSS (5-7h) &gt; Triclosan (5h) &gt; Cetilpiridínio (3-5h) &gt; Iodopovidona (1h).<br>
+<strong>3 indicações do químico:</strong> pós-operatório, DPNs, pacientes especiais.<br>
+<strong>Limitação do mecânico:</strong> acesso anatômico + adesão (&lt;10% usa fio dental eficazmente).<br>
+<strong>Antibiótico sistêmico:</strong> NÃO recomendado para controle rotineiro.</p>
+
+<h3>🛠️ Instrumentação</h3>
+<p><strong>Curetas Gracey:</strong> 5/6 (anteriores/pré-molares); 7/8 (V/L posteriores); 11/12 (mesial posteriores); 13/14 (distal posteriores).<br>
+<strong>Ângulo de trabalho:</strong> 70°-80°. <strong>Ângulo de afiação:</strong> 100°-110° (pedras Arkansas/Índia).<br>
+<strong>Sondas:</strong> Carolina do Norte (PS/NIC), Nabers (furca), OMS (triagem). Pressão: ≈0,25N.</p>
+
+<h3>💬 Comunicação — regra dos 50/50</h3>
+<p>Tratamento clínico = 50% do sucesso; higiene domiciliar do paciente = 50%.</p>
+
+</div>
+
+<div class="top-link"><a href="#sec15">↓ Ir para o Banco de Questões</a></div>
+</section>
+
+<section class="secao" id="sec15">
+<h2>15. Banco de 100 Questões Comentadas — Resolva Online</h2>
+<p>Selecione uma alternativa para receber feedback imediato com comentário. Use os filtros para estudar por tema, embaralhar ou revisar somente as que você errou.</p>
+
+<div id="quiz-container">
+  <div class="quiz-toolbar">
+    <label for="filtroTema">Tema:</label>
+    <select id="filtroTema"></select>
+    <button id="btnEmbaralhar">🔀 Embaralhar</button>
+    <button id="btnReiniciar">↺ Reiniciar tudo</button>
+    <button id="btnSoErradas" disabled>Ver só erradas</button>
+    <span class="quiz-score" id="placar">0 / 100 respondidas | 0 acertos</span>
+  </div>
+  <div id="listaQuestoes"></div>
+</div>
+
+</section>
+
+<script>
+// Banco de 100 questões — Periodontia (Anatomia, Classificação 2018, Controle de Biofilme, Instrumentação)
+// Cada questão: { tema, enunciado, alternativas:[...], correta: index (0-based), comentario }
+const QUESTOES = [
+
+// ===================== BLOCO 1: ANATOMIA (Q1-25) =====================
+{tema:"Anatomia", enunciado:"Qual é a etimologia do termo 'Periodonto'?", alternativas:["Peri (em volta) + Odonto (dente)","Para (próximo) + Odonto (dente)","Peri (proteção) + Odus (osso)","Endo (dentro) + Odonto (dente)"], correta:0, comentario:"Periodonto deriva do grego Peri (em volta) + Odonto (dente), referindo-se ao aparato que envolve e sustenta o dente."},
+
+{tema:"Anatomia", enunciado:"O periodonto se divide funcionalmente em dois grandes grupos. Quais são eles?", alternativas:["Periodonto ativo e periodonto passivo","Periodonto de proteção e periodonto de sustentação","Periodonto superficial e periodonto profundo","Periodonto dental e periodonto gengival"], correta:1, comentario:"Periodonto de Proteção (gengiva) e Periodonto de Sustentação (cemento, ligamento periodontal e osso alveolar) são as duas divisões funcionais clássicas."},
+
+{tema:"Anatomia", enunciado:"Qual estrutura compõe o periodonto de sustentação?", alternativas:["Gengiva marginal","Epitélio juncional","Ligamento periodontal","Epitélio sulcular"], correta:2, comentario:"O ligamento periodontal, junto com cemento radicular e osso alveolar, compõe o periodonto de sustentação. As demais opções pertencem ao periodonto de proteção (gengiva)."},
+
+{tema:"Anatomia", enunciado:"A gengiva marginal (livre) possui aproximadamente qual espessura?", alternativas:["0,25 mm","0,69 mm","1 mm","2 mm"], correta:2, comentario:"A gengiva marginal tem cerca de 1mm de espessura e circunda o dente como um 'colarinho', formando a parede mole do sulco gengival."},
+
+{tema:"Anatomia", enunciado:"Em relação à gengiva inserida, qual afirmação está correta?", alternativas:["É mais larga na região de pré-molares","É mais estreita nos dentes anteriores","É mais larga nos dentes anteriores e mais estreita na região de pré-molares","Tem largura uniforme em toda a arcada"], correta:2, comentario:"A gengiva inserida é mais larga nos dentes anteriores (maxila > mandíbula) e torna-se mais estreita nas regiões posteriores, com menor dimensão na área de primeiros pré-molares."},
+
+{tema:"Anatomia", enunciado:"A depressão em forma de vale, não queratinizada, presente na gengiva interdental sob o ponto de contato, é denominada:", alternativas:["Sulco gengival","Col","Epitélio juncional","Ranhura gengival livre"], correta:1, comentario:"O 'Col' é a depressão não queratinizada da gengiva interdental, particularmente vulnerável à inflamação. Em diastemas, a gengiva interdental torna-se lisa, arredondada e queratinizada (sem Col)."},
+
+{tema:"Anatomia", enunciado:"Qual é o marco anatômico fixo utilizado como referência para medir a perda de inserção (NIC)?", alternativas:["Margem gengival livre","Crista alveolar","Junção Esmalte-Cemento (JEC)","Fundo do sulco gengival"], correta:2, comentario:"A JEC é um ponto de referência fixo no dente, ao contrário da margem gengival (que pode variar com inflamação/recessão), sendo por isso usada para medir o NIC de forma confiável."},
+
+{tema:"Anatomia", enunciado:"Qual é a profundidade histológica média do sulco gengival?", alternativas:["0,25 mm","0,69 mm","1,07 mm","3,0 mm"], correta:1, comentario:"A profundidade histológica média do sulco gengival é 0,69mm. Já a profundidade de sondagem (PS) clínica em tecido saudável pode atingir até 3mm, pois a sonda penetra levemente no epitélio juncional."},
+
+{tema:"Anatomia", enunciado:"Qual estrutura representa o 'elo fraco' na barreira de defesa do periodonto, sendo o local primário da interação hospedeiro-parasita?", alternativas:["Epitélio oral","Epitélio sulcular","Epitélio juncional","Lâmina própria"], correta:2, comentario:"O epitélio juncional, devido à sua permeabilidade e função bidirecional (permite saída de FCG/PMNs e entrada de subprodutos bacterianos), é considerado o 'elo fraco' e o sítio primário da interação hospedeiro-parasita."},
+
+{tema:"Anatomia", enunciado:"O epitélio oral (externo) da gengiva apresenta qual espessura aproximada?", alternativas:["0,2 a 0,3 mm","0,69 mm","0,97 mm","1,07 mm"], correta:0, comentario:"O epitélio oral possui espessura de 0,2 a 0,3mm, é escamoso estratificado queratinizado (orto ou paraqueratinizado), com camadas Basal, Espinhosa, Granulosa e Ceratinizada."},
+
+{tema:"Anatomia", enunciado:"Quais fibras gengivais circundam o dente no tecido conjuntivo da gengiva livre, mantendo o 'colarinho' gengival ajustado?", alternativas:["Dentogengivais","Dentoperiostais","Transeptais","Circulares"], correta:3, comentario:"As fibras circulares envolvem o dente como um cinto na gengiva livre, mantendo o colarinho gengival ajustado ao dente."},
+
+{tema:"Anatomia", enunciado:"As fibras que se estendem interproximalmente sobre a crista óssea, unindo o cemento de dentes vizinhos, são as fibras:", alternativas:["Circulares","Dentoperiostais","Transeptais","Dentogengivais"], correta:2, comentario:"As fibras transeptais passam por cima da crista óssea alveolar, conectando o cemento de dentes adjacentes - relevantes na manutenção do contato proximal."},
+
+{tema:"Anatomia", enunciado:"O Espaço Biológico (Distância Biológica) totaliza 2,04mm. Quais são seus dois componentes e suas respectivas medidas?", alternativas:["Epitélio sulcular (0,69mm) + Epitélio oral (1,35mm)","Epitélio juncional (0,97mm) + Inserção conjuntiva (1,07mm)","Gengiva marginal (1mm) + Sulco (1,04mm)","Ligamento periodontal (0,25mm) + Cemento (1,79mm)"], correta:1, comentario:"O Espaço Biológico = Epitélio Juncional (0,97mm) + Inserção Conjuntiva (1,07mm) = 2,04mm. A invasão desse espaço por restaurações subgengivais provoca inflamação crônica e reabsorção óssea."},
+
+{tema:"Anatomia", enunciado:"Sobre o Ligamento Periodontal (LP), assinale a alternativa correta:", alternativas:["É avascular e possui espessura média de 0,97mm","É altamente vascularizado, inervado, com espessura média de 0,25mm e formato de ampulheta","É um tecido mineralizado que não sofre remodelação","Possui formato cônico, mais largo no terço médio"], correta:1, comentario:"O LP é tecido conjuntivo frouxo, altamente vascularizado e inervado (trigêmeo), com espessura média de 0,25mm e formato de ampulheta (mais estreito no terço médio, que funciona como fulcro de rotação)."},
+
+{tema:"Anatomia", enunciado:"Sobre o cemento radicular, assinale a alternativa que apresenta características histológicas corretas:", alternativas:["Tecido vascularizado com alta taxa de remodelação fisiológica","Tecido mineralizado avascular, composto por colágeno tipos I e III, que não sofre remodelação fisiológica, mas é capaz de reparo","Tecido que contém fibras de Sharpey responsáveis pela inervação sensorial do dente","Porção do periodonto de proteção que se une ao epitélio juncional"], correta:1, comentario:"O cemento é avascular, não sofre remodelação fisiológica (diferente do osso), tem matriz colágena predominantemente tipos I e III, mas mantém capacidade de reparo via cemento celular secundário."},
+
+{tema:"Anatomia", enunciado:"As fibras de Sharpey têm como função:", alternativas:["Formar o epitélio juncional","Ancorar o dente, inserindo-se no cemento e no osso alveolar","Compor exclusivamente a gengiva marginal","Formar a crista alveolar"], correta:1, comentario:"As fibras de Sharpey são as extremidades das fibras colágenas do ligamento periodontal que se inserem profundamente no cemento e no osso alveolar, garantindo a ancoragem dentária."},
+
+{tema:"Anatomia", enunciado:"A crista alveolar é definida como:", alternativas:["A porção mais apical do osso alveolar","O nível ósseo mais coronário, referência radiográfica para reabsorção","A região do ligamento periodontal mais estreita","O ponto de inserção das fibras transeptais no cemento"], correta:1, comentario:"A crista alveolar é o nível ósseo mais coronário do osso alveolar, sendo o ponto de referência radiográfico fundamental para avaliar perda óssea/reabsorção."},
+
+{tema:"Anatomia", enunciado:"Clinicamente, a gengiva inserida saudável apresenta-se com aspecto pontilhado, conhecido como 'casca de laranja'. Esse aspecto reflete histologicamente:", alternativas:["Inflamação crônica e edema do tecido conjuntivo","Ausência de queratinização do epitélio oral","Interdigitação entre projeções epiteliais e papilas da lâmina própria","Presença de fibras transeptais tracionando o epitélio"], correta:2, comentario:"O pontilhado ('stippling') reflete a organização estrutural saudável entre o epitélio e a lâmina própria (papilas conjuntivas que se projetam contra o epitélio), sendo um sinal de saúde periodontal."},
+
+{tema:"Anatomia", enunciado:"Qual a cor característica de uma gengiva clinicamente saudável?", alternativas:["Vermelho vivo","Rosa-coral","Roxo-azulado","Branco-perolado"], correta:1, comentario:"A cor rosa-coral reflete o equilíbrio entre vascularização do tecido conjuntivo, grau de queratinização epitelial e presença de pigmentos melânicos."},
+
+{tema:"Anatomia", enunciado:"Duas teorias explicam a absorção das forças oclusais pelo ligamento periodontal. Quais são elas?", alternativas:["Teoria Celular e Teoria Vascular","Teoria Tensional e Teoria Viscoelástica","Teoria Óssea e Teoria Epitelial","Teoria Inflamatória e Teoria Mecânica"], correta:1, comentario:"Teoria Tensional (fibras principais do LP tracionam o osso) e Teoria Viscoelástica (deslocamento controlado por fluidos do LP) são os dois modelos teóricos clássicos para explicar a dissipação de forças oclusais."},
+
+{tema:"Anatomia", enunciado:"O trauma oclusal ocorre quando:", alternativas:["O paciente realiza escovação muito vigorosa","As forças oclusais excedem a capacidade adaptativa do sistema de amortecimento periodontal","Há acúmulo de biofilme supragengival","A gengiva inserida é mais larga que o normal"], correta:1, comentario:"O trauma oclusal é definido pela superação da capacidade adaptativa do sistema de amortecimento do periodonto de sustentação (LP, osso) pelas forças mastigatórias."},
+
+{tema:"Anatomia", enunciado:"A profundidade de sondagem (PS) clínica em um sítio periodontalmente saudável pode atingir, no máximo, aproximadamente:", alternativas:["0,69 mm","1 mm","2,04 mm","3 mm"], correta:3, comentario:"Embora o sulco histológico médio seja 0,69mm, a PS clínica em saúde pode atingir até 3mm, porque a sonda penetra discretamente na porção coronal do epitélio juncional."},
+
+{tema:"Anatomia", enunciado:"Qual a função principal do epitélio sulcular?", alternativas:["Proteção mecânica intensa por queratinização espessa","Barreira seletiva, semipermeável, não queratinizada","Ancoragem do dente ao osso alveolar","Produção de fibras de Sharpey"], correta:1, comentario:"O epitélio sulcular reveste o sulco gengival, é fino, não queratinizado, e funciona como uma membrana semipermeável que permite trânsito de fluido crevicular e células de defesa."},
+
+{tema:"Anatomia", enunciado:"A gengiva é classificada histologicamente como:", alternativas:["Mucosa de revestimento","Mucosa mastigatória","Mucosa especializada exclusivamente sensorial","Mucosa glandular"], correta:1, comentario:"A gengiva é parte da mucosa oral classificada como mucosa mastigatória, por recobrir os processos alveolares e circundar o colo dos dentes, sendo sujeita a forças de mastigação."},
+
+{tema:"Anatomia", enunciado:"Considerando o sistema de fibras gengivais, as fibras que partem do cemento e se inserem no periósteo do osso alveolar são denominadas:", alternativas:["Circulares","Transeptais","Dentogengivais","Dentoperiostais"], correta:3, comentario:"As fibras dentoperiostais partem do cemento radicular e se inserem no periósteo do osso alveolar, contribuindo para a fixação da gengiva ao osso subjacente."},
+
+// ===================== BLOCO 2: CLASSIFICAÇÃO 2018 (Q26-50) =====================
+{tema:"Classificação", enunciado:"A nova classificação das doenças periodontais (World Workshop 2018) utiliza dois eixos principais para a periodontite. Quais são?", alternativas:["Tipo e Subtipo","Estágio e Grau","Categoria e Fase","Severidade e Localização"], correta:1, comentario:"Estágio (severidade/complexidade — o 'estrago já feito') e Grau (velocidade de progressão/risco — o 'velocímetro da doença') são os dois eixos da classificação 2018 para periodontite."},
+
+{tema:"Classificação", enunciado:"Saúde periodontal é definida clinicamente pela presença de sangramento à sondagem (SS) em qual percentual de sítios?", alternativas:["< 5%","< 10%","< 15%","< 30%"], correta:1, comentario:"Saúde periodontal clínica é definida por SS < 10% dos sítios, na ausência de perda de inserção e de reabsorção óssea radiográfica."},
+
+{tema:"Classificação", enunciado:"Uma gengivite é classificada como 'localizada' quando o sangramento à sondagem está presente em qual faixa de sítios?", alternativas:["< 10%","10% a 30%","30% a 50%","> 50%"], correta:1, comentario:"Gengivite localizada: SS entre 10% e 30% dos sítios. Acima de 30%, é classificada como generalizada."},
+
+{tema:"Classificação", enunciado:"Uma gengivite é classificada como 'generalizada' quando o sangramento à sondagem está presente em:", alternativas:["Mais de 10% dos sítios","Mais de 20% dos sítios","Mais de 30% dos sítios","Mais de 50% dos sítios, exclusivamente"], correta:2, comentario:"Gengivite generalizada é definida por SS > 30% dos sítios."},
+
+{tema:"Classificação", enunciado:"Qual é a principal diferença entre Gengivite e Periodontite, segundo a classificação 2018?", alternativas:["A presença de sangramento à sondagem","A presença de perda de inserção clínica (NIC) e perda óssea radiográfica","A cor da gengiva","O tempo de evolução dos sintomas"], correta:1, comentario:"A presença de NIC (em ≥2 sítios interproximais não adjacentes) associada a reabsorção radiográfica da crista óssea define periodontite; sua ausência, mesmo com sangramento, caracteriza gengivite."},
+
+{tema:"Classificação", enunciado:"Um paciente apresenta NIC de 1 a 2mm e perda óssea radiográfica restrita ao terço coronário, abaixo de 15%. Qual o Estágio da periodontite?", alternativas:["Estágio I","Estágio II","Estágio III","Estágio IV"], correta:0, comentario:"Estágio I (incipiente): NIC 1-2mm e perda óssea no terço coronário <15%, sem perda dentária por periodontite."},
+
+{tema:"Classificação", enunciado:"Um paciente apresenta NIC de 3 a 4mm e perda óssea no terço coronário entre 15% e 30%. Qual o Estágio da periodontite?", alternativas:["Estágio I","Estágio II","Estágio III","Estágio IV"], correta:1, comentario:"Estágio II (moderada): NIC 3-4mm e perda óssea no terço coronário entre 15% e 30%."},
+
+{tema:"Classificação", enunciado:"Um paciente apresenta NIC ≥5mm, perda óssea estendendo-se ao terço médio da raiz, com perda de 3 dentes devido à periodontite e presença de lesão de furca grau II. Qual o Estágio?", alternativas:["Estágio I","Estágio II","Estágio III","Estágio IV"], correta:2, comentario:"Estágio III: NIC ≥5mm, perda óssea em terço médio/apical, ≤4 dentes perdidos (neste caso, 3) e defeitos verticais/furca grau II ou III."},
+
+{tema:"Classificação", enunciado:"Qual achado é decisivo para diferenciar o Estágio III do Estágio IV da periodontite?", alternativas:["O valor exato do NIC, que é sempre diferente entre os dois","A perda de ≥5 dentes por periodontite e/ou necessidade de reabilitação complexa","A presença de sangramento à sondagem","A localização da gengivite associada"], correta:1, comentario:"Tanto o Estágio III quanto o IV apresentam NIC ≥5mm e perda óssea em terço médio/apical. A diferenciação se dá pela perda dentária (≤4 = III; ≥5 = IV) e pela complexidade/necessidade de reabilitação (mobilidade grau 3, colapso de mordida, <20 dentes remanescentes = IV)."},
+
+{tema:"Classificação", enunciado:"Um paciente apresenta perda de 6 dentes por periodontite, mobilidade grau 3 em vários elementos e colapso oclusal, exigindo reabilitação complexa. Qual o Estágio?", alternativas:["Estágio I","Estágio II","Estágio III","Estágio IV"], correta:3, comentario:"Estágio IV: perda de ≥5 dentes por periodontite associada a necessidade de reabilitação complexa devido a colapso oclusal e mobilidade grau 3."},
+
+{tema:"Classificação", enunciado:"Qual o critério primário (evidência direta) para classificar a periodontite como Grau A (lenta)?", alternativas:["Perda de inserção ≥2mm nos últimos 5 anos","Perda <2mm nos últimos 5 anos","Sem perda de inserção nos últimos 5 anos","HbA1c ≥7%"], correta:2, comentario:"Grau A (lenta): ausência de perda de inserção documentada nos últimos 5 anos, tipicamente associada a biofilme pesado com baixa destruição (discrepância biofilme/destruição)."},
+
+{tema:"Classificação", enunciado:"Qual o critério primário para classificar a periodontite como Grau B (moderada)?", alternativas:["Perda <2mm nos últimos 5 anos, com destruição compatível com o biofilme","Perda ≥2mm nos últimos 5 anos","Ausência total de perda de inserção","Tabagismo ≥10 cigarros/dia, isoladamente"], correta:0, comentario:"Grau B: perda de inserção <2mm nos últimos 5 anos, com destruição tecidual compatível (proporcional) à quantidade de biofilme presente."},
+
+{tema:"Classificação", enunciado:"Qual o critério primário para classificar a periodontite como Grau C (rápida)?", alternativas:["Perda <2mm nos últimos 5 anos","Perda ≥2mm nos últimos 5 anos, com destruição excedendo o biofilme presente","Ausência de perda de inserção nos últimos 5 anos","Idade do paciente acima de 60 anos"], correta:1, comentario:"Grau C: perda ≥2mm nos últimos 5 anos, com destruição tecidual desproporcionalmente maior do que a quantidade de biofilme presente sugeriria."},
+
+{tema:"Classificação", enunciado:"Um paciente fumante de 15 cigarros por dia apresenta periodontite com perda de inserção de 1,5mm nos últimos 5 anos. Qual o impacto do tabagismo na classificação do Grau?", alternativas:["Nenhum, pois a perda foi menor que 2mm","O tabagismo (≥10 cigarros/dia) é fator modificador que pode elevar a classificação para Grau C","O tabagismo só altera o Estágio, nunca o Grau","O tabagismo reduz a classificação para Grau A"], correta:1, comentario:"Fumo ≥10 cigarros/dia é um fator modificador que, independentemente da perda direta medida, pode elevar a classificação para Grau C, refletindo maior risco de progressão."},
+
+{tema:"Classificação", enunciado:"Em um paciente diabético, qual valor de HbA1c é considerado fator modificador para Grau C de periodontite?", alternativas:["HbA1c ≥ 5%","HbA1c ≥ 6%","HbA1c ≥ 7%","HbA1c ≥ 9%"], correta:2, comentario:"HbA1c ≥7% (indicando diabetes mal controlada) é o limiar utilizado como fator modificador para classificação em Grau C."},
+
+{tema:"Classificação", enunciado:"As doenças periodontais necrosantes estão frequentemente associadas a:", alternativas:["Excesso de gengiva inserida","Falhas na resposta imune do hospedeiro (ex.: HIV/AIDS, desnutrição)","Apenas má oclusão dentária","Uso prolongado de fio dental"], correta:1, comentario:"As doenças necrosantes (gengivite, periodontite ou estomatite necrosante) são formas graves associadas a falhas na resposta imune, comumente em contextos de imunossupressão, desnutrição grave ou estresse intenso."},
+
+{tema:"Classificação", enunciado:"Quais são os sinais clínicos característicos das doenças periodontais necrosantes?", alternativas:["Ausência total de dor e sangramento","Dor intensa, sangramento espontâneo, necrose papilar e halitose","Apenas recessão gengival sem dor","Mobilidade dentária generalizada sem outros sinais"], correta:1, comentario:"As doenças necrosantes caracterizam-se por dor intensa, sangramento espontâneo, necrose/ulceração das papilas interdentais e halitose característica."},
+
+{tema:"Classificação", enunciado:"Para que a periodontite seja diagnosticada (presença de NIC), é necessário que a perda de inserção esteja presente em:", alternativas:["1 sítio qualquer","≥2 sítios interproximais não adjacentes","Todos os sítios da arcada","Apenas em dentes posteriores"], correta:1, comentario:"O diagnóstico de periodontite requer NIC detectável em ≥2 sítios interproximais não adjacentes, excluindo causas não periodontais de perda de inserção (ex.: trauma, cárie cervical)."},
+
+{tema:"Classificação", enunciado:"A sequência lógica de progressão das condições periodontais, do estado mais saudável ao mais grave, é:", alternativas:["Periodontite → Gengivite → Saúde → Doença Necrosante","Saúde → Gengivite → Periodontite (com Doença Necrosante como categoria separada de gravidade aguda)","Gengivite → Saúde → Periodontite","Doença Necrosante → Saúde → Gengivite → Periodontite"], correta:1, comentario:"A sequência lógica é Saúde Periodontal → Gengivite → Periodontite, com as Doenças Necrosantes constituindo uma categoria separada de apresentação aguda e grave, geralmente associada a imunossupressão."},
+
+{tema:"Classificação", enunciado:"A reversibilidade é uma característica que diferencia gengivite de periodontite. Isso significa que:", alternativas:["Ambas são totalmente reversíveis com tratamento","A gengivite é totalmente reversível; a periodontite causa sequela permanente (irreversível)","A periodontite é reversível; a gengivite não","Nenhuma das duas é reversível"], correta:1, comentario:"A gengivite, por não envolver perda de inserção, é totalmente reversível com remoção do biofilme. A periodontite causa destruição do ligamento periodontal e osso alveolar, gerando sequela permanente (irreversível), mesmo após tratamento bem-sucedido (que estabiliza, mas não regenera totalmente o suporte perdido)."},
+
+{tema:"Classificação", enunciado:"Em relação à crista alveolar no exame radiográfico, qual achado é compatível com gengivite (sem periodontite)?", alternativas:["Reabsorção evidente no terço médio","Crista alveolar intacta","Defeitos verticais profundos","Lesão de furca grau III"], correta:1, comentario:"Na gengivite, a crista alveolar permanece radiograficamente intacta, pois não há destruição do periodonto de sustentação."},
+
+{tema:"Classificação", enunciado:"Estágio II da periodontite corresponde, em termos de complexidade, a:", alternativas:["PS ≤4mm com perda óssea horizontal","PS ≤5mm com perda óssea horizontal","Defeitos verticais e furca II/III","Necessidade de reabilitação complexa"], correta:1, comentario:"No Estágio II, a complexidade típica é PS ≤5mm com padrão de perda óssea horizontal (diferente do Estágio I, que apresenta PS ≤4mm)."},
+
+{tema:"Classificação", enunciado:"O Estágio I da periodontite corresponde, em termos de complexidade, a:", alternativas:["PS ≤4mm com perda óssea horizontal","PS ≤6mm com perda óssea vertical","Lesão de furca grau III","Mobilidade grau 3"], correta:0, comentario:"Estágio I: complexidade caracterizada por PS ≤4mm com perda óssea de padrão horizontal — o quadro mais incipiente."},
+
+{tema:"Classificação", enunciado:"Defeitos ósseos verticais e envolvimento de furca grau II ou III são características de complexidade típicas de qual Estágio?", alternativas:["Estágio I","Estágio II","Estágio III","Nenhum dos estágios apresenta esses achados"], correta:2, comentario:"O Estágio III caracteriza-se, em complexidade, pela presença de defeitos ósseos verticais e lesões de furca grau II ou III, além de NIC ≥5mm e possível perda de até 4 dentes."},
+
+// ===================== BLOCO 3: ETIOLOGIA E CONTROLE DE BIOFILME (Q51-75) =====================
+{tema:"Etiologia", enunciado:"Qual é o agente etiológico primário e necessário para a instalação da gengivite?", alternativas:["Trauma oclusal","Biofilme dental","Genética isolada","Deficiência vitamínica"], correta:1, comentario:"O biofilme dental é considerado o agente etiológico primário e condição sine qua non para a instalação da gengivite, conforme demonstrado pelo estudo de Löe et al. (1965)."},
+
+{tema:"Etiologia", enunciado:"O estudo clássico de Löe, Theilade e Jensen (1965) utilizou quantos indivíduos?", alternativas:["6 indivíduos","10 indivíduos","12 indivíduos","20 indivíduos"], correta:2, comentario:"O estudo 'Gengivite Experimental em Humanos' utilizou 12 indivíduos com saúde gengival prévia."},
+
+{tema:"Etiologia", enunciado:"No estudo de Löe et al. (1965), quanto tempo de suspensão da higiene oral foi necessário para o desenvolvimento de gengivite clínica em todos os participantes?", alternativas:["1 semana","2 semanas","3 semanas","5 semanas"], correta:2, comentario:"A suspensão total da higiene oral por 3 semanas (21 dias) levou ao desenvolvimento de gengivite clínica em 100% dos participantes."},
+
+{tema:"Etiologia", enunciado:"No estudo de Löe et al. (1965), após o retorno da higiene mecânica, em quanto tempo os sinais clínicos de inflamação desapareceram?", alternativas:["3 dias","7 dias","14 dias","21 dias"], correta:1, comentario:"A saúde gengival foi restabelecida em 7 dias após o retorno da higiene mecânica adequada, demonstrando a reversibilidade da gengivite."},
+
+{tema:"Etiologia", enunciado:"Qual a principal conclusão estratégica derivada do estudo de Löe et al. (1965)?", alternativas:["Antibióticos sistêmicos são necessários para reverter a gengivite","O biofilme é necessário para a doença, e sua remoção mecânica é o método mais eficiente de reversão do quadro inflamatório","A gengivite é uma condição irreversível","A genética é o principal fator etiológico da gengivite"], correta:1, comentario:"O estudo provou o nexo causal entre biofilme e inflamação gengival, e demonstrou que a desarticulação física (mecânica) do biofilme é o método mais eficiente para reverter a gengivite."},
+
+{tema:"Etiologia", enunciado:"Qual percentual da população, segundo dados citados nas referências de estudo, utiliza o fio dental de forma eficaz?", alternativas:["Menos de 10%","Cerca de 25%","Cerca de 50%","Mais de 75%"], correta:0, comentario:"Estatisticamente, menos de 10% da população utiliza o fio dental de forma eficaz, sendo essa baixa adesão um fator limitante importante do controle mecânico do biofilme."},
+
+{tema:"Etiologia", enunciado:"Quais são os principais reservatórios de translocação bacteriana que podem recolonizar os dentes após a higienização?", alternativas:["Lábios e bochechas","Dorso da língua e amígdalas","Esmalte dentário e gengiva inserida","Osso alveolar e ligamento periodontal"], correta:1, comentario:"O dorso da língua e as amígdalas funcionam como reservatórios bacterianos, permitindo a recolonização rápida das superfícies dentárias mesmo após escovação eficaz, justificando o uso adjuvante de agentes químicos de amplo espectro."},
+
+{tema:"Etiologia", enunciado:"Quais fatores anatômicos limitam a eficácia do controle mecânico do biofilme?", alternativas:["Apenas a presença de prótese total","Bolsas periodontais profundas, invasões de furca e irregularidades radiculares","Exclusivamente a presença de diastemas","Apenas dentes anteriores apinhados"], correta:1, comentario:"Bolsas profundas, áreas de furca e irregularidades na superfície radicular impedem o acesso adequado das cerdas da escova e do fio dental, limitando o controle mecânico isolado."},
+
+{tema:"Etiologia", enunciado:"O 'shift microbiano' descrito na fisiopatologia da gengivite refere-se a:", alternativas:["Mudança de bactérias Gram-negativas para Gram-positivas durante a doença","Mudança de cocos Gram-positivos (saúde) para bastonetes Gram-negativos anaeróbios (complexo vermelho) durante o acúmulo de biofilme","Substituição completa da microbiota por fungos","Migração bacteriana do sulco para a corrente sanguínea"], correta:1, comentario:"Na saúde, predominam cocos Gram-positivos (complexos azul, amarelo, verde de Socransky). Com o acúmulo e maturação do biofilme sem higiene, há transição para bastonetes Gram-negativos anaeróbios (complexo vermelho), associados à doença periodontal."},
+
+{tema:"Etiologia", enunciado:"Qual é a sequência correta do fluxograma de progressão da doença periodontal a partir da ausência de higiene?", alternativas:["Ausência de higiene → Gengivite clínica → Shift microbiano → Acúmulo de biofilme","Ausência de higiene → Shift microbiano → Acúmulo de biofilme → Resposta inflamatória do hospedeiro → Gengivite clínica","Acúmulo de biofilme → Ausência de higiene → Resposta inflamatória → Shift microbiano","Resposta inflamatória → Ausência de higiene → Shift microbiano → Gengivite"], correta:1, comentario:"A sequência correta é: ausência de higiene leva ao shift microbiano (Gram+ para Gram-), que leva ao acúmulo de biofilme, desencadeando resposta inflamatória do hospedeiro, culminando em gengivite clínica."},
+
+{tema:"Controle do Biofilme", enunciado:"Qual agente químico é considerado o 'padrão-ouro' no controle químico do biofilme?", alternativas:["Triclosan","Cloreto de cetilpiridínio","Clorexidina","Iodopovidona"], correta:2, comentario:"A Clorexidina (CHX) é o padrão-ouro, devido à sua alta substantividade (12h) e amplo espectro de ação bactericida/bacteriostático."},
+
+{tema:"Controle do Biofilme", enunciado:"Qual o mecanismo de ação da Clorexidina?", alternativas:["Inibição da síntese de parede celular fúngica","Bisbiguanida catiônica que rompe a membrana celular e precipita proteínas citoplasmáticas","Liberação de oxigênio reativo exclusivamente","Bloqueio de canais de cálcio bacterianos"], correta:1, comentario:"A Clorexidina é uma bisbiguanida catiônica que rompe a membrana bacteriana e precipita proteínas citoplasmáticas — sendo bacteriostática em baixas concentrações e bactericida em altas concentrações."},
+
+{tema:"Controle do Biofilme", enunciado:"Qual a substantividade aproximada da Clorexidina?", alternativas:["1 hora","3 a 5 horas","5 a 7 horas","12 horas"], correta:3, comentario:"A Clorexidina possui alta substantividade, de aproximadamente 12 horas, a maior entre os agentes comumente comparados."},
+
+{tema:"Controle do Biofilme", enunciado:"Qual a posologia correta da Clorexidina a 0,2%?", alternativas:["10mL por 30 segundos, 2x ao dia","15mL por 1 minuto, 2x ao dia","20mL por 2 minutos, 1x ao dia","5mL por 1 minuto, 3x ao dia"], correta:0, comentario:"Clorexidina 0,2% = 10mL por 30 segundos, 2x ao dia. Já a concentração de 0,12% requer 15mL por 1 minuto, 2x ao dia."},
+
+{tema:"Controle do Biofilme", enunciado:"Qual a posologia correta da Clorexidina a 0,12%?", alternativas:["10mL por 30 segundos","15mL por 1 minuto","10mL por 1 minuto","20mL por 30 segundos"], correta:1, comentario:"Clorexidina 0,12% = 15mL por 1 minuto, 2x ao dia (em contraste com a 0,2%, que usa 10mL por 30 segundos)."},
+
+{tema:"Controle do Biofilme", enunciado:"Quais são os principais efeitos colaterais associados ao uso prolongado de Clorexidina?", alternativas:["Úlceras mucosas e língua pilosa","Manchamento extrínseco, alteração de paladar e aumento de cálculo supragengival","Dormência lingual permanente","Resistência bacteriana generalizada"], correta:1, comentario:"O uso prolongado de CHX está associado a manchamento extrínseco de dentes/língua, alteração temporária do paladar e aumento na velocidade de formação de cálculo supragengival."},
+
+{tema:"Controle do Biofilme", enunciado:"O Triclosan é frequentemente associado a qual copolímero para aumentar sua substantividade?", alternativas:["PVM/MA","LSS","CCP","H2O2"], correta:0, comentario:"O Triclosan, agente bifenólico não iônico, é associado ao copolímero PVM/MA (ácido polivinil-metil-éter maleico) para aumentar sua retenção na cavidade oral, além de citrato de zinco para ação anti-tártaro."},
+
+{tema:"Controle do Biofilme", enunciado:"Qual a substantividade aproximada do Triclosan?", alternativas:["1 hora","5 horas (média)","12 horas (alta)","24 horas"], correta:1, comentario:"O Triclosan apresenta substantividade média, de aproximadamente 5 horas."},
+
+{tema:"Controle do Biofilme", enunciado:"Por que os óleos essenciais costumam causar sensação de ardência durante o uso?", alternativas:["Devido à alta concentração de flúor","Devido à alta concentração alcoólica (cerca de 26,9%)","Devido à presença de clorexidina na fórmula","Devido ao pH extremamente básico"], correta:1, comentario:"A ardência dos óleos essenciais é causada pela alta concentração alcoólica da formulação (cerca de 26,9%), e não representa falha terapêutica, sendo um efeito colateral esperado."},
+
+{tema:"Controle do Biofilme", enunciado:"Qual a substantividade aproximada do Lauril Sulfato de Sódio (LSS)?", alternativas:["1 hora","3 a 5 horas","5 a 7 horas","12 horas"], correta:2, comentario:"O LSS, surfactante presente na maioria dos dentifrícios, possui substantividade de 5 a 7 horas."},
+
+{tema:"Controle do Biofilme", enunciado:"O Cloreto de Cetilpiridínio é classificado quimicamente como:", alternativas:["Bisbiguanida catiônica","Composto quaternário de amônio, monocatiônico","Aminoálcool","Agente oxidante"], correta:1, comentario:"O Cloreto de Cetilpiridínio é um composto quaternário de amônio, monocatiônico, com substantividade baixa (3-5h) e eficácia inferior à CHX a longo prazo."},
+
+{tema:"Controle do Biofilme", enunciado:"Qual agente atua como aminoálcool, interferindo na síntese e adesão/coesão do biofilme, podendo causar dormência lingual?", alternativas:["Clorexidina","Triclosan","Delmopinol/Octapinol","Iodopovidona"], correta:2, comentario:"Delmopinol e seu análogo Octapinol são aminoálcoois que interferem físico-quimicamente na formação e coesão do biofilme, podendo causar dormência/anestesia transitória na mucosa lingual como efeito colateral."},
+
+{tema:"Controle do Biofilme", enunciado:"Qual a substantividade aproximada da Iodopovidona, frequentemente usada como distrator em questões de prova?", alternativas:["12 horas","5 a 7 horas","5 horas","1 hora"], correta:3, comentario:"A Iodopovidona possui substantividade baixa, de apenas 1 hora, sendo seu uso reservado como adjunto à RAR ou em doenças necrosantes, não pela duração do efeito."},
+
+{tema:"Controle do Biofilme", enunciado:"O uso prolongado de agentes oxidantes (H2O2) pode causar qual complicação característica?", alternativas:["Manchamento extrínseco intenso","Úlceras na mucosa e 'língua pilosa'","Dormência lingual permanente","Resistência bacteriana"], correta:1, comentario:"O uso prolongado de agentes oxidantes pode causar úlceras na mucosa e a condição conhecida como 'língua pilosa' (hipertrofia das papilas filiformes)."},
+
+{tema:"Controle do Biofilme", enunciado:"Coloque em ordem decrescente de substantividade: CHX, LSS, Triclosan, Cetilpiridínio, Iodopovidona.", alternativas:["CHX > LSS > Triclosan > Cetilpiridínio > Iodopovidona","Iodopovidona > CHX > Triclosan > LSS > Cetilpiridínio","Triclosan > CHX > LSS > Iodopovidona > Cetilpiridínio","CHX > Triclosan > Cetilpiridínio > LSS > Iodopovidona"], correta:0, comentario:"Ordem correta: CHX (12h) > LSS (5-7h) > Triclosan (5h) > Cetilpiridínio (3-5h) > Iodopovidona (1h)."},
+
+{tema:"Controle do Biofilme", enunciado:"O controle químico do biofilme deve ser entendido como:", alternativas:["Substituto do controle mecânico em todos os pacientes","Adjuvante terapêutico, que preenche lacunas onde a escovação falha, sem substituir o mecânico em pacientes saudáveis","Tratamento de primeira linha para todos os casos de gengivite","Indicado exclusivamente em crianças"], correta:1, comentario:"Existe hierarquia técnica: o controle químico não substitui o mecânico em pacientes saudáveis com boa destreza, mas é adjuvante importante em situações específicas (pós-operatório, DPN, pacientes especiais, etc.)."},
+
+// ===================== BLOCO 4: INSTRUMENTAÇÃO, TRATAMENTO E DIAGNÓSTICO (Q76-100) =====================
+{tema:"Instrumentação", enunciado:"Qual cureta Gracey é indicada para a face mesial de dentes posteriores?", alternativas:["5/6","7/8","11/12","13/14"], correta:2, comentario:"A cureta Gracey 11/12 é específica para a face mesial de dentes posteriores. A 13/14 é usada para a face distal."},
+
+{tema:"Instrumentação", enunciado:"Qual cureta Gracey é indicada para a face distal de dentes posteriores?", alternativas:["5/6","7/8","11/12","13/14"], correta:3, comentario:"A cureta Gracey 13/14 é específica para a face distal de dentes posteriores. Tentar raspar essa face com 11/12 é um erro técnico comum cobrado em provas."},
+
+{tema:"Instrumentação", enunciado:"Qual cureta Gracey é indicada para dentes anteriores e pré-molares?", alternativas:["5/6","7/8","11/12","13/14"], correta:0, comentario:"A cureta Gracey 5/6 é indicada para dentes anteriores e pré-molares (todas as faces ou faces livres, dependendo da fonte)."},
+
+{tema:"Instrumentação", enunciado:"Qual cureta Gracey é indicada para as faces vestibulares e linguais/palatinas de dentes posteriores?", alternativas:["5/6","7/8","11/12","13/14"], correta:1, comentario:"A cureta Gracey 7/8 é indicada para faces vestibulares e linguais/palatinas de dentes posteriores."},
+
+{tema:"Instrumentação", enunciado:"Um operador está realizando RAR na face distal do dente 46 e utiliza a cureta Gracey 11/12. Essa escolha está:", alternativas:["Correta, pois 11/12 é universal para todas as faces","Incorreta, pois 11/12 é indicada para face mesial; a face distal requer 13/14","Correta, pois 11/12 é específica para distal de posteriores","Incorreta, pois deveria usar a cureta 5/6"], correta:1, comentario:"Esse é um erro técnico clássico cobrado em prova: 11/12 = mesial; 13/14 = distal. Para a face distal do 46, o correto seria a Gracey 13/14."},
+
+{tema:"Instrumentação", enunciado:"Qual sonda periodontal é específica para detectar envolvimento de furca?", alternativas:["Sonda Carolina do Norte","Sonda Nabers","Sonda OMS","Sonda McCall"], correta:1, comentario:"A sonda Nabers, curva e romba, é específica para detecção e classificação de lesões de furca (graus I, II, III)."},
+
+{tema:"Instrumentação", enunciado:"Qual sonda periodontal é considerada padrão-ouro para o periograma (registro de PS e NIC), sendo milimetrada de 1 em 1mm até 15mm?", alternativas:["Sonda OMS","Sonda Nabers","Sonda Carolina do Norte","Sonda de Williams sem marcações"], correta:2, comentario:"A sonda Carolina do Norte, milimetrada em 15mm (1 a 1mm), é o padrão-ouro para registro de PS e cálculo do NIC no periograma completo."},
+
+{tema:"Instrumentação", enunciado:"Qual sonda possui uma esfera na ponta e é utilizada principalmente para triagem (screening)?", alternativas:["Sonda Carolina do Norte","Sonda Nabers","Sonda OMS (WHO)","Sonda McCall"], correta:2, comentario:"A sonda OMS (WHO) possui uma esfera na extremidade e é utilizada para triagem rápida (screening), não substituindo o periograma completo com sonda Carolina do Norte."},
+
+{tema:"Instrumentação", enunciado:"Qual o ângulo ideal de trabalho da lâmina da cureta em relação à superfície radicular durante a raspagem (RAR)?", alternativas:["0° a 10°","30° a 45°","70° a 80°","90° a 100°"], correta:2, comentario:"O ângulo ativo da lâmina da cureta com a raiz, durante a RAR, deve ser de 70° a 80° para otimizar a remoção de biofilme e cálculo com mínimo dano à superfície radicular."},
+
+{tema:"Instrumentação", enunciado:"Qual o ângulo ideal entre a face da lâmina da cureta e a pedra de afiar durante a afiação?", alternativas:["45° a 60°","70° a 80°","100° a 110°","120° a 135°"], correta:2, comentario:"O ângulo correto de afiação entre a face da lâmina e a pedra deve ser de 100° a 110°, preservando o formato original da cureta."},
+
+{tema:"Instrumentação", enunciado:"Quais tipos de pedra de afiar são citados para a manutenção de curetas periodontais?", alternativas:["Apenas pedras de diamante","Arkansas (naturais, acabamento fino) e Índia (sintéticas, instrumentos muito cegos)","Apenas pedras cerâmicas","Pedras de granito industrial"], correta:1, comentario:"As pedras de Arkansas (naturais, para acabamento fino) e Índia (sintéticas, para instrumentos muito cegos) são as citadas para afiação de curetas periodontais."},
+
+{tema:"Instrumentação", enunciado:"Por que um instrumento (cureta) cego representa um problema clínico e ergonômico?", alternativas:["Não afeta a clínica, apenas a estética do instrumento","Exige mais força, diminui a precisão e causa fadiga ao operador, aumentando risco de LER","Aumenta automaticamente a substantividade dos agentes químicos","Reduz o tempo de procedimento"], correta:1, comentario:"Um instrumento cego exige maior força do operador, reduz a precisão do corte e aumenta a fadiga muscular, sendo fator de risco para Lesões por Esforço Repetitivo (LER)."},
+
+{tema:"Instrumentação", enunciado:"Qual a pressão de sondagem recomendada para evitar trauma tecidual durante o periograma?", alternativas:["Aproximadamente 0,025 N","Aproximadamente 0,25 N","Aproximadamente 2,5 N","Aproximadamente 25 N"], correta:1, comentario:"A pressão recomendada de sondagem é de aproximadamente 0,25 N — a sonda deve 'caminhar' pelo sulco/bolsa paralelamente ao longo eixo do dente, sem força excessiva."},
+
+{tema:"Instrumentação", enunciado:"A cureta McCall (13/14 ou 17/18) é caracterizada como:", alternativas:["Específica apenas para face mesial de anteriores","Universal, indicada para todas as faces, predominantemente raspagem supragengival","Exclusiva para detecção de furca","Um tipo de sonda periodontal"], correta:1, comentario:"A cureta McCall é universal (todas as faces), sendo predominantemente utilizada para raspagem supragengival."},
+
+{tema:"Instrumentação", enunciado:"A foice McCall (11/12) atua principalmente em qual região?", alternativas:["Sulco gengival de anteriores apenas","Espaço interproximal de dentes posteriores, supragengival","Bolsas profundas subgengivais de anteriores","Face palatina de incisivos"], correta:1, comentario:"A foice McCall (11/12) é indicada para o espaço interproximal de dentes posteriores, atuando predominantemente em superfícies supragengivais."},
+
+{tema:"Diagnóstico", enunciado:"A fórmula prática para o cálculo do Nível de Inserção Clínica (NIC), na presença de recessão gengival, é:", alternativas:["NIC = PS − Recessão","NIC = PS + Recessão (ou margem gengival)","NIC = Recessão − PS","NIC = PS × Recessão"], correta:1, comentario:"NIC = PS + Recessão (distância da margem gengival até a JEC, quando há recessão), refletindo a distância total da JEC até o fundo da bolsa/sulco."},
+
+{tema:"Diagnóstico", enunciado:"Por que o NIC (e não a PS isolada) é o parâmetro utilizado para classificar o Estágio na periodontite?", alternativas:["Porque a PS é sempre maior que o NIC","Porque o NIC é medido a partir de um ponto fixo (JEC), sendo mais confiável que a PS, que varia com a posição da margem gengival","Porque o NIC é mais fácil de medir com sonda OMS","Porque a PS não pode ser medida em dentes posteriores"], correta:1, comentario:"A margem gengival (referência da PS) pode variar com inflamação/recessão, sendo uma referência móvel. A JEC (referência do NIC) é fixa no dente, tornando o NIC mais confiável para classificação de estágio."},
+
+{tema:"Diagnóstico", enunciado:"Qual é a sequência correta e recomendada do fluxo de exame periodontal clínico?", alternativas:["Periograma → Anamnese → RX → Diagnóstico → Índices → Exame físico","Anamnese → Exame físico → Índices de biofilme/SS → Periograma → Exame radiográfico → Diagnóstico e plano","Exame radiográfico → Periograma → Anamnese → Diagnóstico","Diagnóstico → Anamnese → Periograma → RX"], correta:1, comentario:"A sequência lógica é: Anamnese (histórico médico/odontológico) → Exame físico extra/intraoral → Índices de biofilme e sangramento → Periograma (PS, NIC, furca, mobilidade) → Exame radiográfico → Diagnóstico (Estágio/Grau) e plano de TPNC."},
+
+{tema:"Diagnóstico", enunciado:"Durante a anamnese periodontal, qual medicamento é classicamente citado como relevante para o histórico médico, devido à sua associação com hiperplasia gengival?", alternativas:["Paracetamol","Nifedipina","Amoxicilina","Ibuprofeno"], correta:1, comentario:"A Nifedipina (bloqueador de canal de cálcio) é classicamente associada a hiperplasia gengival induzida por medicamentos, sendo relevante coletar esse dado na anamnese."},
+
+{tema:"Diagnóstico/Tratamento", enunciado:"Segundo a 'regra dos 50/50' utilizada na comunicação com o paciente, o sucesso do tratamento periodontal depende de:", alternativas:["100% do trabalho clínico do dentista","50% do tratamento clínico e 50% da higiene oral domiciliar do paciente","70% de medicamentos e 30% de procedimento clínico","Exclusivamente da genética do paciente"], correta:1, comentario:"A regra dos 50/50 destaca que o tratamento clínico (RAR, manutenção) representa metade do sucesso; a outra metade depende da adesão do paciente à higiene oral diária."},
+
+{tema:"Tratamento", enunciado:"Em um paciente com Doença Periodontal Necrosante (DPN), por que o controle mecânico inicial costuma ser impossibilitado?", alternativas:["Por falta de instrumentos adequados","Pela dor intensa característica do quadro, tornando mandatória a adjuvância química (CHX ou oxidantes)","Porque o paciente está sempre sedado","Porque a DPN não responde a nenhum tratamento"], correta:1, comentario:"A dor intensa típica das DPNs impede a higienização mecânica habitual, tornando mandatório o uso adjuvante de Clorexidina ou agentes oxidantes (H2O2) no manejo inicial."},
+
+{tema:"Tratamento", enunciado:"O uso sistêmico de antibióticos para controle rotineiro de biofilme dental é:", alternativas:["Recomendado como primeira linha em todos os casos de gengivite","Não recomendado, devido ao risco de resistência bacteriana, sendo reservado para condições sistêmicas/periodontites específicas","Indicado apenas em crianças","Obrigatório antes de qualquer RAR"], correta:1, comentario:"Antibióticos sistêmicos não são recomendados para controle rotineiro de biofilme (risco de resistência bacteriana), sendo reservados para quadros sistêmicos associados ou periodontites específicas/refratárias."},
+
+{tema:"Caso Clínico", enunciado:"Paciente apresenta sangramento à sondagem em 8% dos sítios, sem perda de inserção e sem reabsorção radiográfica. Qual o diagnóstico?", alternativas:["Periodontite Estágio I","Gengivite Localizada","Gengivite Generalizada","Saúde Periodontal Clínica"], correta:3, comentario:"SS <10% sem NIC e sem reabsorção óssea define saúde periodontal clínica, ainda que exista algum sangramento residual."},
+
+{tema:"Caso Clínico", enunciado:"Paciente com PS até 5mm, perda óssea horizontal moderada (15-30% no terço coronário), sem evidência de progressão acelerada nos últimos 5 anos e sem fatores modificadores. Qual classificação mais provável?", alternativas:["Periodontite Estágio I Grau A","Periodontite Estágio II Grau B","Periodontite Estágio III Grau C","Periodontite Estágio IV Grau A"], correta:1, comentario:"Perda óssea 15-30% no terço coronário com PS ≤5mm e padrão horizontal corresponde ao Estágio II; ausência de progressão acelerada ou fatores modificadores indica Grau B (progressão compatível com o biofilme)."},
+
+{tema:"Caso Clínico", enunciado:"Paciente apresenta mobilidade grau 3, perda de 7 dentes por periodontite e progressão documentada de 3mm de NIC nos últimos 5 anos, além de ser fumante de 20 cigarros/dia. Qual classificação?", alternativas:["Periodontite Estágio II Grau A","Periodontite Estágio III Grau B","Periodontite Estágio IV Grau C","Gengivite Generalizada Grau C"], correta:2, comentario:"Perda de ≥5 dentes (7) e mobilidade grau 3 indicam Estágio IV; progressão ≥2mm em 5 anos (3mm) associada a tabagismo ≥10 cigarros/dia (20) confirma Grau C."},
+
+];
+
+</script>
+<script>
+(function(){
+  const lista = document.getElementById('listaQuestoes');
+  const filtroTema = document.getElementById('filtroTema');
+  const placar = document.getElementById('placar');
+  const btnEmbaralhar = document.getElementById('btnEmbaralhar');
+  const btnReiniciar = document.getElementById('btnReiniciar');
+  const btnSoErradas = document.getElementById('btnSoErradas');
+
+  // estado: respondida (index escolhido) por questão, indexado pela ordem ORIGINAL
+  const estado = QUESTOES.map(() => ({respondida:false, escolha:null}));
+
+  // ordem de exibição atual (array de índices originais)
+  let ordemAtual = QUESTOES.map((_,i)=>i);
+  let mostrarSoErradas = false;
+
+  // popular filtro de temas
+  const temas = Array.from(new Set(QUESTOES.map(q=>q.tema)));
+  const optTodos = document.createElement('option');
+  optTodos.value = 'TODOS'; optTodos.textContent = 'Todos os temas';
+  filtroTema.appendChild(optTodos);
+  temas.forEach(t=>{
+    const o = document.createElement('option');
+    o.value = t; o.textContent = t;
+    filtroTema.appendChild(o);
+  });
+
+  function atualizarPlacar(){
+    let respondidas = 0, acertos = 0;
+    estado.forEach((e,i)=>{
+      if(e.respondida){
+        respondidas++;
+        if(e.escolha === QUESTOES[i].correta) acertos++;
+      }
+    });
+    placar.textContent = respondidas + ' / 100 respondidas | ' + acertos + ' acertos';
+    btnSoErradas.disabled = respondidas === 0;
+  }
+
+  function renderQuestao(origIdx, displayNum){
+    const q = QUESTOES[origIdx];
+    const e = estado[origIdx];
+
+    const div = document.createElement('div');
+    div.className = 'questao';
+    div.dataset.orig = origIdx;
+
+    const head = document.createElement('div');
+    head.className = 'qhead';
+    const num = document.createElement('span');
+    num.className = 'qnum';
+    num.textContent = 'Questão ' + displayNum;
+    const tag = document.createElement('span');
+    tag.className = 'qtema';
+    tag.textContent = q.tema;
+    head.appendChild(num);
+    head.appendChild(tag);
+    div.appendChild(head);
+
+    const enun = document.createElement('div');
+    enun.className = 'qenunciado';
+    enun.textContent = q.enunciado;
+    div.appendChild(enun);
+
+    const altsWrap = document.createElement('div');
+    altsWrap.className = 'alternativas';
+    const letras = ['A','B','C','D'];
+
+    q.alternativas.forEach((alt, idx) => {
+      const label = document.createElement('label');
+      label.className = 'alternativa';
+      const radio = document.createElement('input');
+      radio.type = 'radio';
+      radio.name = 'q' + origIdx;
+      radio.value = idx;
+      if(e.respondida) radio.disabled = true;
+      if(e.respondida && e.escolha === idx){
+        label.classList.add(e.escolha === q.correta ? 'correta-marcada' : 'errada-marcada');
+        radio.checked = true;
+      }
+      if(e.respondida && idx === q.correta && e.escolha !== q.correta){
+        label.classList.add('revelar-correta');
+      }
+      const span = document.createElement('span');
+      span.textContent = letras[idx] + ') ' + alt;
+      label.appendChild(radio);
+      label.appendChild(span);
+
+      radio.addEventListener('change', () => {
+        e.respondida = true;
+        e.escolha = idx;
+        atualizarPlacar();
+        renderTudo(); // re-render para mostrar feedback e travar opções
+      });
+
+      altsWrap.appendChild(label);
+    });
+    div.appendChild(altsWrap);
+
+    if(e.respondida){
+      const fb = document.createElement('div');
+      const correto = e.escolha === q.correta;
+      fb.className = 'feedback show ' + (correto ? 'acerto' : 'erro');
+      const titulo = document.createElement('div');
+      titulo.innerHTML = correto
+        ? '✅ <strong>Correto!</strong>'
+        : '❌ <strong>Incorreto.</strong> Resposta correta: ' + letras[q.correta] + ') ' + q.alternativas[q.correta];
+      const com = document.createElement('div');
+      com.className = 'comentario';
+      com.textContent = q.comentario;
+      fb.appendChild(titulo);
+      fb.appendChild(com);
+      div.appendChild(fb);
+
+      const actions = document.createElement('div');
+      actions.className = 'qactions';
+      const btnRefazer = document.createElement('button');
+      btnRefazer.textContent = 'Refazer questão';
+      btnRefazer.addEventListener('click', () => {
+        e.respondida = false;
+        e.escolha = null;
+        atualizarPlacar();
+        renderTudo();
+      });
+      actions.appendChild(btnRefazer);
+      div.appendChild(actions);
+    }
+
+    return div;
+  }
+
+  function renderTudo(){
+    lista.innerHTML = '';
+    const temaSel = filtroTema.value || 'TODOS';
+
+    let ordemFiltrada = ordemAtual.filter(idx => {
+      if(temaSel !== 'TODOS' && QUESTOES[idx].tema !== temaSel) return false;
+      if(mostrarSoErradas){
+        const e = estado[idx];
+        if(!e.respondida || e.escolha === QUESTOES[idx].correta) return false;
+      }
+      return true;
+    });
+
+    if(ordemFiltrada.length === 0){
+      const msg = document.createElement('p');
+      msg.textContent = mostrarSoErradas
+        ? 'Nenhuma questão errada encontrada para este filtro. 🎉'
+        : 'Nenhuma questão encontrada para este filtro.';
+      lista.appendChild(msg);
+      return;
+    }
+
+    ordemFiltrada.forEach((origIdx, i) => {
+      lista.appendChild(renderQuestao(origIdx, i+1));
+    });
+  }
+
+  filtroTema.addEventListener('change', renderTudo);
+
+  btnEmbaralhar.addEventListener('click', () => {
+    for(let i = ordemAtual.length - 1; i > 0; i--){
+      const j = Math.floor(Math.random() * (i+1));
+      [ordemAtual[i], ordemAtual[j]] = [ordemAtual[j], ordemAtual[i]];
+    }
+    renderTudo();
+  });
+
+  btnReiniciar.addEventListener('click', () => {
+    if(!confirm('Isso vai limpar todas as respostas dadas. Continuar?')) return;
+    estado.forEach(e => { e.respondida = false; e.escolha = null; });
+    mostrarSoErradas = false;
+    btnSoErradas.textContent = 'Ver só erradas';
+    atualizarPlacar();
+    renderTudo();
+  });
+
+  btnSoErradas.addEventListener('click', () => {
+    mostrarSoErradas = !mostrarSoErradas;
+    btnSoErradas.textContent = mostrarSoErradas ? 'Ver todas' : 'Ver só erradas';
+    renderTudo();
+  });
+
+  atualizarPlacar();
+  renderTudo();
+})();
+</script>
+
+<!-- CONTEUDO_PLACEHOLDER -->
+
+</main>
+</div>
+</body>
+</html>
